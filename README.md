@@ -5,20 +5,20 @@
 - 삼성 역량테스트 B형 취득
 - 알고리즘 14개 유형 풀이
 
-# 📜 Study Info
+## 📜 Study Info
 
 - 스터디 일정: 2023.07.24 (화) ~ 2023.10.31(화)
 - 노션 생성일: 2023.07.21 (금)
 - 스터디 장소 : 유성온천역 ?
 - 스터디 시간: ?
 
-# 👪  Members
+## 👪  Members
 
 - (원하는 이모지)권준구(솔브닥 링크)
 - (원하는 이모지)이재신(솔브닥 링크)
 - **🐿️[조담현](https://solved.ac/profile/whekagus123)**
 
-# 🤝 Study Rule
+## 🤝 Study Rule
 
 1. 🫂 매주 화요일에는 개념 강의 + 기초 3문제 / 목요일에는 심화 3문제 풀이 공유 및 코드 리뷰
 2. 📚 공부 내용, 새로 알게된 내용, 모르는 내용 공유하기
@@ -29,7 +29,7 @@
 
  
 
-# ✔  Algorithm List
+## ✔  Algorithm List
 
 1. **수학 (합공식, 피보나치수, 약수, 최대공약수, 최소공배수, 소수, 조합과 순열)**
 2. **자료구조 (해시, 스택, 큐, 덱, 힙)**
@@ -47,13 +47,13 @@
 14. 위상 정렬
 15. 문자열, 트라이
 
-# 📝 Study Resource
+## 📝 Study Resource
 
 📃 https://github.com/soberdam/ssafy-10th-algorithm-study
 
 📃 [코딩테스트 대비 문제집](https://github.com/tony9402/baekjoon)
 
-📃[코딩테스트 알고리즘별 추천문제](https://dev-dain.tistory.com/155)
+📃 [코딩테스트 알고리즘별 추천문제](https://dev-dain.tistory.com/155)
 
 📃 [코딩테스트 공부 방법](https://plzrun.tistory.com/entry/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4PS-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0)
 
@@ -63,7 +63,7 @@
 
 📃 [코드리뷰 하는법](https://joyful-development.tistory.com/14)
 
-# ⭐ Study Done
+## ⭐ Study Done
 
 - [ ]  **수학 (합공식, 피보나치수, 약수, 최대공약수, 최소공배수, 소수, 조합과 순열)**
 - [ ]  **자료구조 (해시, 스택, 큐, 덱, 힙)**
