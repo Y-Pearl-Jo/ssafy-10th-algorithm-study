@@ -1,32 +1,29 @@
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
 public class Main {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-	static int[] num;
-	static boolean[] select;
+	static int[] nLotto;
+	static boolean[] choice;
 	static int k;
 
 	public static void lotto(int depth, int idx) {
 		if (depth == k) {
 			if (idx == 6) {
 				for (int i = 0; i < k; i++) {
-					if(select[i])
-						System.out.print(num[i] + " ");
+					if(choice[i])
+						System.out.print(nLotto[i] + " ");
 				}
 				System.out.println();
 			}
 			return;
 		}
 
-		select[depth] = true;
+		choice[depth] = true;
 		lotto(depth + 1, idx + 1);
-		select[depth] = false;
+		choice[depth] = false;
 		lotto(depth + 1, idx);
 	}
 
@@ -40,11 +37,11 @@ public class Main {
 			st = new StringTokenizer(temp);
 			k = Integer.parseInt(st.nextToken());
 			
-			num = new int[k];
-			select = new boolean[k];
+			nLotto = new int[k];
+			choice = new boolean[k];
 
 			for (int i = 0; i < k; i++) {
-				num[i] = Integer.parseInt(st.nextToken());
+				nLotto[i] = Integer.parseInt(st.nextToken());
 			}
 
 			lotto(0, 0);
