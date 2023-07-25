@@ -9,9 +9,9 @@ public class Main {
 	static boolean[] choice;
 	static int k;
 
-	public static void lotto(int depth, int idx) {
+	public static void lotto(int depth, int cnt) {
 		if (depth == k) {
-			if (idx == 6) {
+			if (cnt == 6) {
 				for (int i = 0; i < k; i++) {
 					if(choice[i])
 						System.out.print(nLotto[i] + " ");
@@ -22,9 +22,9 @@ public class Main {
 		}
 
 		choice[depth] = true;
-		lotto(depth + 1, idx + 1);
+		lotto(depth + 1, cnt + 1);
 		choice[depth] = false;
-		lotto(depth + 1, idx);
+		lotto(depth + 1, cnt);
 	}
 
 	public static void main(String[] args) throws IOException {
