@@ -23,7 +23,7 @@
 
 # 👪  스터디 구성원
 
-- 🦧**권준구**
+- **🦧[권준구](https://solved.ac/profile/dngpf)**
 - **🐧[이재신](https://solved.ac/profile/jaesin463)**
 - **🐿️[조담현](https://solved.ac/profile/whekagus123)**
 
