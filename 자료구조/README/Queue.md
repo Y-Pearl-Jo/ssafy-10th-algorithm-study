@@ -106,7 +106,7 @@ class Stack{
     
     ```java
     System.out.println(queue.isempty());
-    stack.push(1);
+    queue.poll(1);
     System.out.println(queue.isempty());
     
     //출력 결과
