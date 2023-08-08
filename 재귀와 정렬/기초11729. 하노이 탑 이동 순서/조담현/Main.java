@@ -31,7 +31,7 @@ public class Main {
     
     public static int hanoyCount(int n) {
 	if(n==1) return 1;
-  // n-1개를 middle로 옮기고, 바닥 원판을 end로 옮긴후에 n-1개를 다시 end로 옮긴다.
+  	// n-1개를 middle로 옮기고, 바닥 원판을 end로 옮긴후에 n-1개를 다시 end로 옮긴다.
 	return 2*hanoyCount(n-1)+1;
     }
    
