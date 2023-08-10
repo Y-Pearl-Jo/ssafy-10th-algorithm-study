@@ -1,5 +1,3 @@
-package baek;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Arrays;
@@ -15,7 +13,7 @@ import java.util.StringTokenizer;
 class Seat {
     int number = 0;
     int like = 0;
-    int empty = -1;
+    int empty = 0;
 
 }
 
@@ -87,7 +85,7 @@ public class Main {
 	    }
 	    int a = 0;
 	    int b = 0; // 앉을 자리의 인덱스를 저장할 임시 변수
-
+	    int maxLike = Integer.MIN_VALUE; // 남은 자리중 좋아하는 학생수가 최대인 곳을 찾기 위한 변수
 	    for (int j = 0; j < N; j++) {
 		for (int k = 0; k < N; k++) {
 
@@ -95,13 +93,14 @@ public class Main {
 		    if (room[j][k].number != 0)
 			continue;
 		    // 좋아하는 학생수가 더 많다면 앉을 자리 업데이트
-		    if (room[j][k].like > room[a][b].like) {
+		    if (room[j][k].like > maxLike) {
 			a = j;
 			b = k;
+			maxLike = room[j][k].like;
 		    }
 
 		    // 좋아하는 학생 수가 같은데 빈자리가 더 많다면 앉을 자리 업데이트
-		    if (room[j][k].like == room[a][b].like) {
+		    if (room[j][k].like == maxLike) {
 			if (room[j][k].empty > room[a][b].empty) {
 			    a = j;
 			    b = k;
@@ -116,13 +115,13 @@ public class Main {
 	    
 
 	    // 배열 확인
-	    for (int m = 0; m < N; m++) {
-		for (int n = 0; n < N; n++) {
-		    System.out.print(room[m][n].number + " ");
-		}
-		System.out.println();
-	    }
-	    System.out.println();
+//	    for (int m = 0; m < N; m++) {
+//		for (int n = 0; n < N; n++) {
+//		    System.out.print(room[m][n].number + " ");
+//		}
+//		System.out.println();
+//	    }
+//	    System.out.println();
 	} // 가장 바깥 for문 끝.
 
 	Arrays.sort(students, (o1, o2) -> {
@@ -157,7 +156,7 @@ public class Main {
 			}
 		    }
 		}
-		// count 만큼 total 증가
+		// count에 비례하여 total 증가
 		switch (count) {
 		case 0:
 		    break;
@@ -182,11 +181,3 @@ public class Main {
 }
 
 
-21608
-17406
-
-
-
-1406
-1629
-1074
