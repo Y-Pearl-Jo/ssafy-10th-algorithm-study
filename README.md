@@ -26,7 +26,7 @@
 - 🦧[권준구](https://solved.ac/profile/dngpf)
 - 🐧[이재신](https://solved.ac/profile/jaesin463)
 - 🐿️[조담현](https://solved.ac/profile/whekagus123)
-- [조연주](https://solved.ac/profile/ivvi_a)
+- 🐹[조연주](https://solved.ac/profile/ivvi_a)
 <br>
 
 # 🤝 스터디 규칙
