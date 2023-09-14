@@ -46,7 +46,7 @@ public class Main {
 			return;
 		}
 		
-		int[][] temp = new int[R2-R1+1][C2-C1+1];
+		int[][] temp = new int[arr.length*N][arr.length*N];
 		int tempR = 0;
 		for(int i=0; i<N; i++) {
 			int tempC = 0;
