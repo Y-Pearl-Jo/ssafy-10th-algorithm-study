@@ -4,26 +4,23 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
-
+//Bottom-Up 22276 KB 212 ms
 public class Main {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-	static StringBuilder sb = new StringBuilder();
 	static StringTokenizer st;
 
-	static int N;
-	static int[] num;
-	static int[] dp;
-	static int max;
+	static int N, max;
+	static int[] num, dp;
 
 	static void solution() {
 		dp[0] = num[0];
-    //점점 작아지는 배열의 경우 0번째 원소가 가장 큰 값이 됨
+    		//점점 작아지는 배열의 경우 0번째 원소가 가장 큰 값이 됨
 		max = dp[0];
+		
 		for(int i = 1; i < N; i++) {
-      //이전까지 연속된 수의 최댓값 + i번째 값 과 i번째 값의 크기 비교
+      		//이전까지 연속된 수의 최댓값 + i번째 값 과 i번째 값의 크기 비교
 			dp[i] = Math.max(dp[i - 1] + num[i], num[i]);
-      //N-1은 N-1까지 연속된 수들 중 최댓값이지 전체 배열 중에서 최댓값이 아님
+      			//N-1은 N-1까지 연속된 수들 중 최댓값이지 전체 배열 중에서 최댓값이 아님
 			max = Math.max(max, dp[i]);
 		}
 		
