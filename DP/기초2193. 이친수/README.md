@@ -1,4 +1,4 @@
-# [Gold III] 이친수 - 2193
+# [Silver III] 이친수 - 2193
 
 [문제 링크](https://www.acmicpc.net/problem/2193) 
 
