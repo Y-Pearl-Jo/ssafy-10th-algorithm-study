@@ -1,13 +1,9 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.StringTokenizer;
-
+import java.io.*;
+import java.util.*;
+// Bottom-Up 11816 KB 84 ms
 public class Main {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
-	static StringBuilder sb = new StringBuilder();
 	static int N;
 	static int[][] board;
 	static long[][] dp;
@@ -19,6 +15,8 @@ public class Main {
 			for (int j = 0; j < N; j++) {
 				int plus = board[i][j];
 				if(plus == 0) break;
+				//최단 경로를 찾는 문제가 아니고 경로의 수를 찾는 문제이므로
+				//Min 값 비교가 아닌 경우의 수를 계속 더해주는 방식
 				if (i + plus < N)
 					dp[i + plus][j] += dp[i][j];
 				if (j + plus < N)
