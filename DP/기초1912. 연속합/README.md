@@ -1,4 +1,4 @@
-# [Silver II] 연속합 - 1912 
+# [Silver II] 연속합 - 1912
 
 [문제 링크](https://www.acmicpc.net/problem/1912) 
 
@@ -23,4 +23,3 @@
 ### 출력 
 
  <p>첫째 줄에 답을 출력한다.</p>
-

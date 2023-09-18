@@ -1,4 +1,4 @@
-# [Silver III] 이친수 - 2193 
+# [Gold III] 이친수 - 2193
 
 [문제 링크](https://www.acmicpc.net/problem/2193) 
 
@@ -30,4 +30,3 @@
 ### 출력 
 
  <p>첫째 줄에 N자리 이친수의 개수를 출력한다.</p>
-
