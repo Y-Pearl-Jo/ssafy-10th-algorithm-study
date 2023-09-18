@@ -10,9 +10,9 @@ public class Main {
 
 		int n = Integer.parseInt(br.readLine());
 
-		int[][] arr = new int[n][n];
+		long[][] arr = new int[n][n];
 
-		int[][] d = new int[n][n];
+		long[][] d = new int[n][n];
 
 		for (int i = 0; i < n; i++) {
 			StringTokenizer st = new StringTokenizer(br.readLine());
@@ -32,11 +32,11 @@ public class Main {
 				int nr = i + move;
 				int nc = j + move;
 				if (nr < n) {
-					d[nr][j]++;
+					d[nr][j]+=d[i][j];
 				}
 
 				if (nc < n) {
-					d[i][nc]++;
+					d[i][nc]+=d[i][j];
 				}
 			}
 		}
