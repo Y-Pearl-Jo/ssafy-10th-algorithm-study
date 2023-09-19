@@ -26,7 +26,7 @@ public class Main {
 			for (int j = 0; j < n; j++) {
 				if (d[i][j] == 0)
 					continue;
-				
+				if (i==n-1&&j==n-1) break;
 				int move = arr[i][j];
 				int nr = i + move;
 				int nc = j + move;
