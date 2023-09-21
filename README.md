@@ -28,6 +28,7 @@
 - 🐿️[조담현](https://solved.ac/profile/whekagus123)
 - 🐹[조연주](https://solved.ac/profile/ivvi_a)
 - 🐬[정혜진](https://solved.ac/profile/pado7sea)
+  
 <br>
 
 # 🤝 스터디 규칙
