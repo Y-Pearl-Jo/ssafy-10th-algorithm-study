@@ -31,7 +31,7 @@ public class Main {
 			dp[i][i + 1] = matrix[i][0] * matrix[i][1] * matrix[i + 1][1];
 		}
 		for (int i = 1; i < N - 1; i++) {
-			dp[0][i] = multiple(0, i - 1) + multiple(i + 1, N - 1) + matrix[i][0] * matrix[i][1] * matrix[i + 1][1];
+			dp[0][i] = multiple(0, i) + multiple(i + 1, N - 1) + matrix[i][0] * matrix[i][1] * matrix[i + 1][1];
 		}
 		System.out.println(dp[0][N - 1]);
 	}
