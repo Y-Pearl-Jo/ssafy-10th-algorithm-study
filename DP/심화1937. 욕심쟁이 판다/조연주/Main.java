@@ -1,4 +1,4 @@
-// 40680kb 436ms
+// 40556kb 428ms
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -27,11 +27,7 @@ public class Main {
 		}
 		
 		// DP:top-down
-		dp = new int[N][N];
-		for(int i=0; i<N; i++) {
-			Arrays.fill(dp[i], -1); // 모든 값을 -1로
-		}
-		
+		dp = new int[N][N];		
 		for(int y=0; y<N; y++) {
 			for(int x=0; x<N; x++) {
 				DP(y,x);
@@ -45,16 +41,17 @@ public class Main {
 	
 	// start 지점에서 갈 수 있는 경로 길이의 최댓값 -> 동서남북 나보다 더 큰 값이 있는 자리들 중 최댓값 +1
 	static int DP(int y, int x) {
-		if(dp[y][x]!=-1) {
+		if(dp[y][x]!=0) {
 			return dp[y][x];
 		}
 		
 		boolean isEnd = true;
 		
-		// 현재 지점보다 크고 + 배열 밤위 안이라면
+		// 사방탐색
 		for(int d=0; d<4; d++) {
 			int ny = y + dy[d];
 			int nx = x + dx[d];
+			// 현재 지점보다 크고 + 배열 밤위 안이라면
 			if(nx>=0 && nx<N && ny>=0 && ny<N) {
 				if(arr[ny][nx]>arr[y][x]) {
 					dp[y][x] = Math.max(dp[y][x], DP(ny,nx)+1);
