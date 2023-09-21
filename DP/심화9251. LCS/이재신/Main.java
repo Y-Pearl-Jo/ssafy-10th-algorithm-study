@@ -1,7 +1,8 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
- 
+
+// 메모리 : 25660 KB 시간 : 192 ms
 public class Main {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static char[] str1;
