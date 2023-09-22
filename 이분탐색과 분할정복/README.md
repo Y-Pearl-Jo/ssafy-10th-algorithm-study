@@ -16,14 +16,12 @@
 
 # 3. 검색 과정
 
-![binary-and-linear-search-animations.gif](https://prod-files-secure.s3.us-west-2.amazonaws.com/17320757-0034-4cde-9f2f-1c239860205c/b61fc973-06d2-4986-b417-02422dbc7f14/binary-and-linear-search-animations.gif)
+![binary-and-linear-search-animations](https://github.com/JG-1011/ssafy-10th-algorithm-study/assets/116864863/60a3e398-ea4f-4dd8-b1e6-1b113aef09d8)
 
 ## 자세히 보기
 
 ## - 먼저 배열의 가운데를 결정한다.
-
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/17320757-0034-4cde-9f2f-1c239860205c/e40d5772-449d-4f5f-958a-0f0e5081b52b/Untitled.png)
-
+![Untitled](https://github.com/JG-1011/ssafy-10th-algorithm-study/assets/116864863/3f44dfcd-3144-4ef5-9733-0f97bbc8310f)
 <aside>
 💡 mid  = low + (high - low) / 2
 
@@ -33,10 +31,9 @@
 
 </aside>
 
+
 ## - 중앙 값과 검색 값을 비교한다.
-
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/17320757-0034-4cde-9f2f-1c239860205c/fc630d2a-9caf-46db-8622-5f8dc755c69e/Untitled.png)
-
+![Untitled (1)](https://github.com/JG-1011/ssafy-10th-algorithm-study/assets/116864863/404579c8-6f75-48a1-9cce-9850ffddf1f8)
 <aside>
 💡 A [4] < key 이므로 배열의 오른쪽 구간을 검색 범위로 정합니다.
 
@@ -48,10 +45,9 @@ low = mid + 1
 
 </aside>
 
+
 ## - 중앙 값을 결정한다.
-
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/17320757-0034-4cde-9f2f-1c239860205c/cffbefe2-ae05-4633-8f71-4d5f24e1e625/Untitled.png)
-
+![Untitled (2)](https://github.com/JG-1011/ssafy-10th-algorithm-study/assets/116864863/60468ea5-09f2-4d7b-a116-d4c9814d0e5a)
 <aside>
 💡 mid = 5+ (9-5)/2
 
@@ -59,10 +55,9 @@ low = mid + 1
 
 </aside>
 
+
 ## - 중앙 값과 검색 값을 비교한다.
-
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/17320757-0034-4cde-9f2f-1c239860205c/62c2a8a4-a19f-4980-a31f-de19ad77639a/Untitled.png)
-
+![Untitled (3)](https://github.com/JG-1011/ssafy-10th-algorithm-study/assets/116864863/43daf7f1-a3f6-4841-974f-18cdaee142cf)
 <aside>
 💡 A [7] > key 이므로 배열의 왼쪽 구간을 탐색 범위로 정합니다.
 
@@ -74,10 +69,9 @@ high = mid -1
 
 </aside>
 
+
 ## - 중앙 값을 결정한다.
-
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/17320757-0034-4cde-9f2f-1c239860205c/b8fb11e4-aace-4155-8867-20c08205814f/Untitled.png)
-
+![Untitled (4)](https://github.com/JG-1011/ssafy-10th-algorithm-study/assets/116864863/3142d386-78be-4965-9706-ff28d0a0ed20)
 <aside>
 💡 mid = 5 + (6-5)/2
 
@@ -86,6 +80,7 @@ high = mid -1
 </aside>
 
 ## - A[5] = Key 이므로 탐색 종료
+
 
 # 4. 구현
 
@@ -126,73 +121,85 @@ int binarySearch (int arr[], int low, int high, int key) {
 }
 ```
 
+## ✅중간 값 구할 때 팁
+
+> int mid = low + (high - low) / 2
+> 
+
+단순히 다음 방식으로 중간 값을 구할 수도 있지만
+
+> int mid = (low + high) / 2
+> 
+
+두번째 방식은 low + high 값이 int 값 (2^31 -1)의 범위보다 크다면 음수 값으로 오버플로우 될 것이고
+
+이 음수 값을 2로 나누면 mid 값은 음수가 되기 때문에 문제가 될 수 있다.
+
+low + high값이 범위를 넘어서는 경우가 있다면 첫번째 방식으로 중간 값을 구해야 한다.
+
+그렇지 않다면 두번째 방식이 연산이 간단하기 때문에 첫번째 방식보다 효율적이다
+
+---
 
 - 분할 정복이란, 해결할 문제를 **여러 개의 작은 부분으로 나누고**(divde), **나눈 작은 문제를 해결**(Conquer)하여, 필요하다면 그 해를 통합(Combine)하는 형식의 문제 풀이를 말한다.
-    
-    ![img.gif](https://prod-files-secure.s3.us-west-2.amazonaws.com/17320757-0034-4cde-9f2f-1c239860205c/baa0df42-f953-4e36-bbfc-49168862c9d5/img.gif)
-    
+
+
+    ![img](https://github.com/JG-1011/ssafy-10th-algorithm-study/assets/116864863/8c6c9b6f-138d-43ee-b32b-e212cff3fa13)
 
 <aside>
 💡 ① 분할 : 전체 데이터를 반으로 지속적으로 분할한다. 직접 문제가 해결되는 수준까지(1개 남을 때까지)
 
-② 정복 : 데이터가 1개가 남으면 그 자체로 이미 정렬된 상태이다. 분할된 2개의 데이터를 정렬한다.(하위 문제 해결)
+   ② 정복 : 데이터가 1개가 남으면 그 자체로 이미 정렬된 상태이다. 분할된 2개의 데이터를 정렬한다.(하위 문제 해결)
 
-③ 병합 : 정렬된 하위 문제를 병합하여 전체 내역을 정렬한다.
+   ③ 병합 : 정렬된 하위 문제를 병합하여 전체 내역을 정렬한다.
 
 </aside>
 
 # 1. 합병 정렬
+![Untitled (5)](https://github.com/JG-1011/ssafy-10th-algorithm-study/assets/116864863/2e25aee6-0f77-45ca-ab18-8475cb345fbb)
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/17320757-0034-4cde-9f2f-1c239860205c/32b0a87a-3235-4c44-9dfe-05f6cd386ea7/Untitled.png)
 
 ## 분할 ( 가장 작은 단위까지 분할)
+![Untitled (6)](https://github.com/JG-1011/ssafy-10th-algorithm-study/assets/116864863/16928895-a698-479c-b935-4ae9cbd15699)
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/17320757-0034-4cde-9f2f-1c239860205c/eb2c2761-f5bc-4f35-9206-3f82b7638094/Untitled.png)
-
-🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻
-
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/17320757-0034-4cde-9f2f-1c239860205c/c8d4f7bf-1fad-45b4-bb88-59f628911cc0/Untitled.png)
 
 🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻
+![Untitled (7)](https://github.com/JG-1011/ssafy-10th-algorithm-study/assets/116864863/48e3611b-3ce9-475f-8a4e-93e04cb52639)
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/17320757-0034-4cde-9f2f-1c239860205c/99caf623-c04a-44d5-ab30-02cdb968bda7/Untitled.png)
 
+🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻
+![Untitled (8)](https://github.com/JG-1011/ssafy-10th-algorithm-study/assets/116864863/0ae8cc32-cec1-496d-841e-83ac211c0642)
 <aside>
 💡 배열을 반으로 나누고
 가장 작은 단위가 나올때까지 쪼갠다.
-
 </aside>
+
 
 ## 정렬
-
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/17320757-0034-4cde-9f2f-1c239860205c/9e7140a5-d7c7-4f2c-997b-494821cc59ad/Untitled.png)
-
+![Untitled (9)](https://github.com/JG-1011/ssafy-10th-algorithm-study/assets/116864863/44c66abc-70f9-47fb-9979-97eac4a8caa8)
 <aside>
 💡 각 구간에서 쪼개지기 전에 같이 있던 원소들끼리 비교하여 정렬한다.
-
 </aside>
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/17320757-0034-4cde-9f2f-1c239860205c/67af45df-7099-4085-baa3-dd02ef1b3cd4/Untitled.png)
 
+![Untitled (10)](https://github.com/JG-1011/ssafy-10th-algorithm-study/assets/116864863/09a24e1a-1b62-43d9-a675-565f3d6e088c)
 <aside>
 💡 2개를 4개로 정렬병합 한다.
-
 </aside>
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/17320757-0034-4cde-9f2f-1c239860205c/e6f4d88d-929b-4f23-9f74-8f3b381b3196/Untitled.png)
 
+![Untitled (11)](https://github.com/JG-1011/ssafy-10th-algorithm-study/assets/116864863/29ee293c-01f4-49f5-884d-60f77f53fb52)
 <aside>
 💡 합병할 때 정렬이 되는 로직
-
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/17320757-0034-4cde-9f2f-1c239860205c/2f749429-7d91-463a-9664-a41af649cedf/Untitled.png)
-
+![Untitled (12)](https://github.com/JG-1011/ssafy-10th-algorithm-study/assets/116864863/1e293220-e3ec-488c-a1d4-29768d80a695)
 각 요소의 첫번째 원소끼리 비교를 한다.
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/17320757-0034-4cde-9f2f-1c239860205c/9841a664-10a0-48e0-91aa-9256572549f3/Untitled.png)
-
+  
+  ![Untitled (13)](https://github.com/JG-1011/ssafy-10th-algorithm-study/assets/116864863/859c6001-52ae-464f-8c67-a100b792d631)
 작은 수를 넣고, i는 한칸 이동한다.
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/17320757-0034-4cde-9f2f-1c239860205c/4c51e218-2117-4d4c-958b-056c44554611/Untitled.png)
+
+![Untitled (14)](https://github.com/JG-1011/ssafy-10th-algorithm-study/assets/116864863/b8918deb-33c2-4bfd-8bb7-a1c63610e761)
 
 한쪽이 배열 범위를 넘어가면 멈추고 남은 원소를 뒤에 집어넣는다.
 
