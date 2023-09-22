@@ -290,7 +290,7 @@ low + high값이 범위를 넘어서는 경우가 있다면 첫번째 방식으�
     
       # 피보나치 함수(Fibonacci Function) 반복문으로 구현(보텀업 다이나믹 프로그래밍)
       for i in range(3, n + 1):
-          d[i] = d[i - 1] + d[i - ㅕㄴ
+          d[i] = d[i - 1] + d[i - 2]
     ```
     
 </aside>
