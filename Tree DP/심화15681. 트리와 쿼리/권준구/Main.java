@@ -12,7 +12,7 @@ public class Main {
     public static void main(String[] args) throws NumberFormatException, IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer stk = new StringTokenizer(br.readLine(), " ");
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 
         int n = Integer.parseInt(stk.nextToken());  // 노드의 개수
         int r = Integer.parseInt(stk.nextToken());  // 루트 노드
@@ -27,7 +27,7 @@ public class Main {
         }
 
         for (int i = 1; i < n; i++) {
-            stk = new StringTokenizer(br.readLine(), " ");
+            st = new StringTokenizer(br.readLine(), " ");
             int u = Integer.parseInt(stk.nextToken());
             int v = Integer.parseInt(stk.nextToken());
 
