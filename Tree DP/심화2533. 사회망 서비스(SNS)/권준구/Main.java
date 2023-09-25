@@ -34,7 +34,7 @@ public class Main {
         System.out.println(Math.min(dp[1][0], dp[1][1]));  // 루트 노드의 dp 값 중 최소값 출력
     }
 
-    static void dfs(int number) {
+    public static void dfs(int number) {
     	visit[number] = true;
         dp[number][0] = 0;  // 해당 number가 얼리어답터가 아닌 경우
         dp[number][1] = 1;  // 해당 number가 얼리어답터인 경우(우선 시작 시 해당 지점 얼리어답터이므로 개수 1)
