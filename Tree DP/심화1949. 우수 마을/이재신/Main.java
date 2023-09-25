@@ -17,11 +17,9 @@ public class Main {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringBuilder sb = new StringBuilder();
 	static StringTokenizer st;
-	static int N, R, Q;
-	static int[] parent;
+	static int N;
 	static int[] people;
 	static int[][] dp;
-	static boolean[] visited;
 	static ArrayList<Integer>[] tree;
 
 	static void recur(int node, int parent) {
@@ -43,7 +41,7 @@ public class Main {
 
 	static void solution() throws IOException {
 		// 아이디어에서 말한 대로 출발 노드는 상관 없음
-		recur(1,0);
+		recur(1, 0);
 		// 출발 노드를 최상위 노드라고 생각 했을 때 해당 노드에서의 dp값만 알면 됨
 		int result = Math.max(dp[1][0], dp[1][1]);
 		System.out.println(result);
