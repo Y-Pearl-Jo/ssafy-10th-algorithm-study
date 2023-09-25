@@ -7,7 +7,6 @@ public class Main {
 	static int N;
 	static int[] citizen; // 각 마을 주민 수를 저장하는 배열
 	static ArrayList<Integer>[] city; // 인접 리스트를 사용하여 트리 구조를 표현하는 배열
-	static boolean[] visited; // DFS 중 방문한 노드를 추적하는 배열
 	static int[][] d; // 동적 프로그래밍 결과를 저장하는 배열
 
 	public static void main(String[] args) throws Exception {
@@ -18,7 +17,6 @@ public class Main {
 
 		citizen = new int[N + 1]; // 마을 주민 수 저장
 		city = new ArrayList[N + 1]; // 마을의 인접 리스트 초기화
-		visited = new boolean[N + 1]; // 방문한 노드를 표시하는 배열 초기화
 		d = new int[N + 1][2]; // 결과를 저장할 배열 초기화
 
 		for (int i = 1; i <= N; i++) {
