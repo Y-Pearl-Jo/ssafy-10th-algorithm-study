@@ -15,6 +15,7 @@ public class Main {
 		counterClockWise();
 	}
 
+	// 시계 방향 돌리기
 	static void clockWise() {
 		int air = Airconditioner[1];
 		int tempLD = dust[N - 1][0];
@@ -38,6 +39,7 @@ public class Main {
 		}
 	}
 
+	// 반시계 방향 돌리기
 	static void counterClockWise() {
 		int air = Airconditioner[0];
 		int tempLU = dust[0][0];
@@ -61,14 +63,17 @@ public class Main {
 		dust[air - 1][M - 1] = tempRD;
 	}
 
+	// 미세먼지 확산
 	static void spread(int x, int y) {
+		// 확산되는 양은 값 / 5 (소숮점 버림)
 		int spDust = dust[x][y] / 5;
 		int cnt = 0;
-
+		// 인접한 4반향으로 확산
 		for (int i = 0; i < 4; i++) {
 			int r = x + dr[i];
 			int c = y + dc[i];
 
+			// 인접한 방향에 공기청정기가 있거나, 칸이 없으면 확산 X
 			if (r >= 0 && r < N && c >= 0 && c < M) {
 				if ((r == Airconditioner[0] || r == Airconditioner[1]) && c == 0)
 					continue;
@@ -76,10 +81,10 @@ public class Main {
 				cnt++;
 			}
 		}
-
+		// 남은 미세먼지의 양은 (x,y) - (x,y) / 5 * 확산된 방향의 개수
 		temp[x][y] += (dust[x][y] - (cnt * spDust));
 	}
-
+	// 공기 청정기의 위치
 	static void findAir() {
 		int idx = 2;
 
