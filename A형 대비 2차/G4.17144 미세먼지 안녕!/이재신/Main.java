@@ -10,11 +10,6 @@ public class Main {
 	static int[] dr = { 0, 0, 1, -1 };
 	static int[] dc = { 1, -1, 0, 0 };
 
-	static void refresh() {
-		clockWise();
-		counterClockWise();
-	}
-
 	// 시계 방향 돌리기
 	static void clockWise() {
 		int air = Airconditioner[1];
@@ -111,7 +106,8 @@ public class Main {
 
 		dust = temp.clone();
 
-		refresh();
+		clockWise();
+		counterClockWise();
 	}
 
 	static int result() {
