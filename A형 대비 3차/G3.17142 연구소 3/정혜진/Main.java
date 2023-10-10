@@ -67,4 +67,61 @@ public class Main {
 		for (int i = start; i < viruses.size(); i++) {
 			active[depth] = viruses.get(i); // 활성 바이러스 배열에 바이러스 저장
 			dfs(depth + 1, i + 1);
-		
+		}
+
+	}
+
+	// 활성 바이러스가 확산되는 메서드
+	private static void bfs(int empty) {
+		Queue<Point> q = new LinkedList<>();
+		boolean[][] visited = new boolean[N][N];
+
+		// 활성 바이러스들을 시작 노드로 해서 큐에 저장
+		for (int i = 0; i < M; i++) { // 활성바이러스는 M개
+			Point p = active[i];
+			visited[p.r][p.c] = true; // 방문처리
+			q.add(p); // 큐에 추가
+		}
+
+		// 큐가 빌 때까지 반복
+		while (!q.isEmpty()) {
+			Point p = q.poll();
+
+			for (int d = 0; d < 4; d++) {
+				int nr = p.r + dr[d];
+				int nc = p.c + dc[d];
+
+				if (nr < 0 || nr >= N || nc < 0 || nc >= N || visited[nr][nc] || map[nr][nc] == 1) {
+					continue;
+				}
+
+				// 빈공간이라면 빈공간 개수 하나 감소
+				if (map[nr][nc] == 0) {
+					empty--;
+				}
+
+				// 빈공간이 0개가 되었다면 그때까지의 최소 시간을 갱신하고 종료
+				if (empty == 0) {
+					minTime = Math.min(minTime, p.time + 1);
+				}
+
+				visited[nr][nc] = true; // 방문처리
+				q.add(new Point(nr, nc, p.time + 1)); // 시간 하나 증가 시켜서 큐에 추가
+
+			}
+
+		}
+
+	}
+
+}
+
+class Point {
+	int r, c, time;
+
+	Point(int r, int c, int time) {
+		this.r = r;
+		this.c = c;
+		this.time = time;
+	}
+}
