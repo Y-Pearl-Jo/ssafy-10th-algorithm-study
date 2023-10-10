@@ -1,3 +1,130 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
+
+public class Main {
+
+	static int N, M;
+	static int[][] map; // 맵 배열
+	static boolean[][] visited; // 방문 배열
+	static ArrayList<Point> list; // 블록 그룹을 담는 리스트
+
+	static int sum = 0;
+
+	static int[] dr = { 0, 1, 0, -1 }; // 좌하우상
+	static int[] dc = { -1, 0, 1, 0 };
+
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+
+		N = Integer.parseInt(st.nextToken()); // 한 변의 크기
+		M = Integer.parseInt(st.nextToken()); // 색상의 개수
+
+		map = new int[N][N]; // 맵 배열 초기화
+
+		// 블록 입력. 검은색 블록은 -1, 무지개 블록은 0, 일반 블록은 1~M 사이의 자연수
+		for (int i = 0; i < N; i++) {
+			st = new StringTokenizer(br.readLine());
+			for (int j = 0; j < N; j++) {
+				map[i][j] = Integer.parseInt(st.nextToken());
+			}
+		}
+
+		while (true) {
+
+			visited = new boolean[N][N]; // 방문 배열 초기화
+			list = new ArrayList<>(); // 블록 그룹 리스트 초기화
+
+			// 크기가 가장 큰 블록 그룹을 찾기
+			for (int i = 0; i < N; i++) { // 기준 블록은 무지개 블록이 아닌 블록 중에서 행의 번호가 가장 작은 블록,
+				for (int j = 0; j < N; j++) { // 그러한 블록이 여러개면 열의 번호가 가장 작은 블록
+
+					// 검은색 블록(-1)이거나 무지개 블록(0)이거나 이미 방문한 블록은 기준 블록이 될 수 없음
+					if (map[i][j] <= 0 || visited[i][j])
+						continue;
+
+					// 기준 블록에서부터 bfs
+					bfs(i, j, map[i][j]);
+
+				}
+			}
+
+			// 우선순위대로 정렬
+			Collections.sort(list);
+
+			// 블록 그룹이 없다면 종료
+			if (list.size() == 0)
+				break;
+
+			// 블록 그룹 제거
+			delete();
+//			System.out.println("제거");
+//			print();
+
+			// 중력
+			gravity();
+//			System.out.println("중력");
+//			print();
+
+			// 반시계 회전
+			rotate();
+//			System.out.println("회전");
+//			print();
+
+			// 중력
+			gravity();
+
+		}
+
+		// 출력
+		System.out.println(sum);
+
+	}
+
+	public static void print() {
+		for (int i = 0; i < N; i++) {
+			for (int j = 0; j < N; j++) {
+				System.out.printf("%3d ", map[i][j]);
+			}
+			System.out.println();
+		}
+		System.out.println();
+	}
+
+	// 크기가 가장 큰 블록 그룹을 찾는 메서드
+	private static void bfs(int r, int c, int color) {
+		Queue<Point> q = new LinkedList<>();
+		int size = 1;
+		int rainbow = 0;
+		visited[r][c] = true;
+		q.add(new Point(r, c, 0, 0));
+
+		while (!q.isEmpty()) {
+			Point p = q.poll();
+
+			for (int d = 0; d < 4; d++) {
+				int nr = p.r + dr[d];
+				int nc = p.c + dc[d];
+
+				// 범위 밖이거나 방문 했었거나 검은 블록이면 패스
+				if (nr < 0 || nr >= N || nc < 0 || nc >= N || visited[nr][nc] || map[nr][nc] == -1) {
+					continue;
+				}
+
+				// 무지개 블록이면 방문 처리하고 큐에 추가
+				if (map[nr][nc] == 0) {
+					size++; // 전체 블록 수와
+					rainbow++; // 무지개 블록 수도 하나 증가
+					visited[nr][nc] = true;
+					q.add(new Point(nr, nc, 0, 0));
+				}
+				// 일반 블록이면 기준 블록 색이랑 같을 때만 방문처리하고 큐에 추가
+				else if (map[nr][nc] == color) {
 					size++; // 전체 블록 수만 증가
 					visited[nr][nc] = true;
 					q.add(new Point(nr, nc, 0, 0));
