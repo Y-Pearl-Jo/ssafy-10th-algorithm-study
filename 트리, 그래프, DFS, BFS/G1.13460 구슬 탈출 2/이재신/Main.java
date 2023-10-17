@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.*;
-// 메모리 11680 KB, 시간 80 ms
+// 메모리 11684 KB, 시간 76 ms
 public class Main {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
