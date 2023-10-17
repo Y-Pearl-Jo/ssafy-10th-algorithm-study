@@ -1,19 +1,12 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.StringTokenizer;
-
+import java.io.*;
+import java.util.*;
+// 메모리 15928 KB, 시간  292 ms
 public class Main {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringBuilder sb;
 	static StringTokenizer st;
 	static TrieNode trie = new TrieNode();
-	// 메모리 15928 KB, 시간  292 ms
+	
 	static class TrieNode {
 		Map<String, TrieNode> childNode = new HashMap<>();
 
