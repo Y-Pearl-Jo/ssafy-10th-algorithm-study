@@ -130,7 +130,7 @@
         
         	// 아예 존재하지 않는 단어인 경우
         	if(!thisNode.getChildNodes().containsKey(character))
-        		throw new Erro("There is no [" + word + "] in this Trie.");
+        		throw new Error("There is no [" + word + "] in this Trie.");
         	
         	TrieNode childNode = thisNode.getChildNodes().get(charcter);
         	idx++;
@@ -138,7 +138,7 @@
         	if(idx == word.length()) {
         		// 삭제하는 첫 노드는 마지막 단어이어야 함
         		if(!childNode.getIsLastChar())
-        			throw new Erro("There is no [" + word + "] in this Trie.");
+        			throw new Error("There is no [" + word + "] in this Trie.");
         	
         		childNode.setIsLastChar(false);
         
