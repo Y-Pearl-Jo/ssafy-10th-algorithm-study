@@ -21,39 +21,38 @@
 
 1. 구현을 위해 **Trie**와 이를 구성할 **TrieNode 클래스** 각각 필요
 - **TrieNode**
-    - 자식 노드 맵과 현재 노드가 마지막 글자인지 여부
+    - **자식 노드인 맵과 현재 노드가 마지막 글자인지 여부**를 포함
         - **마지막 글자 여부를 사용하는 이유는 DEV를 저장해뒀을 때, DE가 true가 되지 않기 위함**
-    - **private**이기 때문에 **Getter / Setter 필요**
-        - 자식노드는 Trie 차원에서 생성해서 넣을 것이기 때문에 G 만 생성
-        - 마지막 글자 여부는 노드 삭제 과정에서 필요하기 때문에 G / S 모두 생성
-    - TrieNode 기본 구현 코드
+    - **private으로 설정하기** 때문에 **Getter / Setter 필요**
+        - **자식노드는 Trie 차원에서 생성해서 넣을 것이기 때문에 G 만 생성**
+        - **마지막 글자 여부**는 노드 삭제 과정에서 필요하기 때문에 **G / S 모두 생성**
+    - **TrieNode 기본 구현 코드**
         
         ```java
-        public class TrieNode{
-        	// 자식 노드 맵
-        	private Map<String, TrieNode> childNode = new HashMap<>();
-        	// 마지막 글자인지 여부
-        	private boolean isLastChar;
+        public class TrieNode {
+        		// 자식 노드 맵
+        		private Map<Character, TrieNode> childNodes = new HashMap<>();
+        		// 마지막 글자인지 여부
+        		private boolean isLastChar;
         
-        	Map<Character, TrieNode> getChildNodes(){
-        		return this.childNodes;
-        	}
+        		Map<Character, TrieNode> getChildNodes() {
+        			return this.childNodes;
+        		}
         
-        	boolean getIsLastChar(){
-        		return this.isLastChar;
-        	}
+        		boolean getIsLastChar() {
+        			return this.isLastChar;
+        		}
         
-        	void setIsLastChar(boolean isLastChar){
-        		this.isLastChar = isLastChar;
+        		void setIsLastChar(boolean isLastChar) {
+        			this.isLastChar = isLastChar;
+        		}
         	}
-        }
         ```
         
-- Trie
-    - 기본적으로 빈 문자열을 가지는 루트노드만 가짐
+- **Trie**
+    - 생성자를 통해 빈 문자열을 가지는 루트노드 생성
     - 이후 insert 메서드를 통해 자식 노드 생성
-    - 처음 Trie가 생성 될 때 루트노드가 생성되도록 생성자 설정
-    - Trie 기본 구현 코드
+    - **Trie 기본 구현 코드**
         
         ```java
         public class Trie {
@@ -68,10 +67,9 @@
         
     - **저장(Insert) / 확인(Contains) / 삭제(Delete) 세가지 메서드 구현**
     - **저장(Insert)**
-        - 입력받은 문자열을 **계층구조의 자식노드로 만들어 넣음**
-        - 이때, 이미 **있는 부분(공통 접두어 부분) 까지는 생성하지 않음**
-        - 해당 계층 문자의 자식노드가 존재하지 않을 때에만 자식 노드 생성
-    - 저장(Insert) 구현 코드
+        - 입력받은 문자열을 **문자로 나누어 계층구조의 자식노드로 만들어 넣음**
+        - 이때, **이미 있는 부분(공통 접두어 부분) 까지는 생성하지 않음**
+    - **저장(Insert) 구현 코드**
         
         ```java
         void insert(String word) {
@@ -79,9 +77,12 @@
         	TrieNode thisNode = this.rootNode;
         	// 문자열의 길이 만큼 순회하며 문자 확인
         	for (int i = 0; i < word.length(); i++){
-        		//
-        		thisNode = thisNode.getChildNodes().computeIfAbsent(word.charAt(i),c -> new TrieNode());
+        		// computeIfAbsent()
+        		// Key값에 해당하는 Value 존재 여부에 따라 새로 대입
+        		thisNode = thisNode.getChildNodes().computeIfAbsent(
+        																				word.charAt(i), c -> new TrieNode());
         	}
+        	// 문자열을 넣고 마지막 문자의 노드 isLastChar를 ture
         	thisNode.setIsLastChar(true);
         }
         ```
@@ -89,7 +90,7 @@
     - **확인(Contains)**
         - **루트노드 부터 순서대로 알파벳이 일치하는 자식노드들이 존재**
         - **마지막 글자에 해당하는 노드의 isLastChar가 true**
-    - 확인(Contains) 구현 코드
+    - **확인(Contains) 구현 코드**
         
         ```java
         boolean contains(String word) {
@@ -117,7 +118,7 @@
         - **삭제하는 첫 노드는 isLastChar == true**이어야 함
         - **삭제 진행 과정 중에는 isLastChar == false**
             - 위 값이 **true이면 다른 단어와 공유 중**이므로 그때부터는 삭제 되면 안됨
-    - 삭제(Delete) 구현 코드
+    - **삭제(Delete) 구현 코드**
         
         ```java
         void delete(String word) {
@@ -144,7 +145,9 @@
         		// 자식 노드가 없어야 함
         		if(childNode.getChildNodes().isEmpty))
         			thisNode.getChildNodes().remove(charcter);
+        
         	} else {
+        		// idx가 문자열 길이가 될때까지 재귀호출 후 나오면서 노드 제거
         		delete(childNode, word, idx);
         		
         		// 자식 노드가 없고, 어떤 단어의 마지막 단어가 아니어야 함
@@ -154,7 +157,7 @@
         }
         ```
         
-    - Trie 종합 구현 코드
+    - **Trie 종합 구현 코드**
         
         ```java
         public class Trie {
@@ -164,7 +167,7 @@
         	Trie() {
         		rootNode = new TrieNode();
         	}
-        	// ----삽입----
+        	// ----저장----
         	void insert(String word) {
         		TrieNode thisNode = this.rootNode;
         
