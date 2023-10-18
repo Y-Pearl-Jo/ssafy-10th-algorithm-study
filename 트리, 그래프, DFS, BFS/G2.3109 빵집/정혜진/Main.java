@@ -38,7 +38,7 @@ public class Main {
 
 		// 각 행의 첫 번째 열에서 시작해서 dfs 호출
 		for (int i = 0; i < R; i++) {
-			if (dfs(i, 0)) // true를 반환하면 파이프라인 설치가 가능하다는 뜻이다.
+			if (dfs(i, 0)) // true를 반환하면 파이프라인 설치가 가능하다는 뜻
 				count++; // 최대 파이프라인 개수 1 증가
 		}
 
@@ -68,7 +68,7 @@ public class Main {
 			visited[nr][nc] = true;
 			if (dfs(nr, nc))
 				return true;
-//			visited[nr][nc] = false; // 이거 하면 똑같이 테케는 맞는데 4% 맞고 시간초과 뜬다.
+//			visited[nr][nc] = false; // 이거 하면 똑같이 테케는 맞는데 4% 맞고 시간초과 뜬다. 단 한 번 가스관 도달하는 거 확인만하면 되니까 굳이 할 필요x
 
 		}
 
