@@ -54,7 +54,7 @@ public class Main {
 			sum += moveSheep(islands[next]);
 		}
 		
-		// 자식노드들의 합을 모두 계산한 후, 내 노드가 양인지 늑대인지에 따라 합을 구해주고 부모 노드에게 return한다.
+		// 자식노드들의 합을 모두 계산한 후, 내 노드가 양인지 늑대인지에 따라 자식노드들의 합에 더해주고 부모 노드에게 return한다.
  		if(now.animal.equals("S")) {
 			return sum + now.count;
 		} else {
