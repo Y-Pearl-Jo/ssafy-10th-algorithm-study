@@ -1,9 +1,10 @@
-//	339484KB	3004ms
+//372616KB 1692ms
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.PriorityQueue;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class Main {
@@ -25,8 +26,7 @@ public class Main {
 		K = Integer.parseInt(st.nextToken()); // 벽을 K개 까지 부수고 이동가능
 
 		map = new int[N + 1][M + 1];
-		visited = new boolean[N + 1][M + 1][K + 1]; //메모리아끼자..
-		
+		visited = new boolean[N + 1][M + 1][K + 1]; // 메모리아끼자..
 
 		// 맵 정보 입력
 		for (int i = 1; i <= N; i++) {
@@ -51,11 +51,11 @@ public class Main {
 	}
 
 	private static void bfs(int r, int c) {
-		PriorityQueue<Point> pq = new PriorityQueue<>();
-		pq.add(new Point(r, c, 1, 0));
+		Queue<Point> q = new LinkedList<>();
+		q.add(new Point(r, c, 1, 0));
 
-		while (!pq.isEmpty()) {
-			Point p = pq.poll();
+		while (!q.isEmpty()) {
+			Point p = q.poll();
 
 			// (N,M) 도착
 			if (p.r == N && p.c == M) {
@@ -78,9 +78,9 @@ public class Main {
 				// 벽이 아니면
 				if (map[nr][nc] == 0) {
 					// 여태 벽을 부순 적이 없었으면
-					if (!visited[nr][nc][nwall]) { //현재까지 부순 벽의 개수를 인덱스로 표시
+					if (!visited[nr][nc][nwall]) { // 현재까지 부순 벽의 개수를 인덱스로 표시
 						visited[nr][nc][nwall] = true; // 현재 좌표 방문 표시
-						pq.add(new Point(nr, nc, ndist, nwall)); // 큐에 좌표와 최단거리, 부순벽의 개수를 저장
+						q.add(new Point(nr, nc, ndist, nwall)); // 큐에 좌표와 최단거리, 부순벽의 개수를 저장
 					}
 
 				}
@@ -89,7 +89,7 @@ public class Main {
 					// 아직 부순 벽의 개수가 K개보다 적다면
 					if (nwall < K && !visited[nr][nc][nwall]) {
 						visited[nr][nc][nwall] = true; // 현재 좌표에서 이전에 부순 벽이 있음을 표시
-						pq.add(new Point(nr, nc, ndist, nwall + 1)); // 큐에 좌표와 최단거리, 부순벽의 개수를 저장
+						q.add(new Point(nr, nc, ndist, nwall + 1)); // 큐에 좌표와 최단거리, 부순벽의 개수를 저장
 					}
 				}
 			}
@@ -97,7 +97,7 @@ public class Main {
 	}
 }
 
-class Point implements Comparable<Point> {
+class Point {
 	int r, c, dist, wall;
 	// wall은 현재까지 부순 벽의 수
 
@@ -108,10 +108,4 @@ class Point implements Comparable<Point> {
 		this.dist = dist;
 		this.wall = wall;
 	}
-
-	@Override
-	public int compareTo(Point o) {
-		return this.dist - o.dist;
-	}
-
 }
