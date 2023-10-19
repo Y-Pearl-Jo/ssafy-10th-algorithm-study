@@ -6,17 +6,8 @@ import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
-class Point {
-	int x;
-	int y;
-	boolean broken;
-	
-	Point(int x, int y, boolean broken) {
-		this.x=x;
-		this.y=y;
-		this.broken=broken;
-	}
-}
+
+
 public class Main {
 	static int[] dr = {-1, 0, 1};
 	static int R, C;
