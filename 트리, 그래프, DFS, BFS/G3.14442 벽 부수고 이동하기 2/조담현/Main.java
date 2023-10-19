@@ -54,7 +54,7 @@ public class Main {
 				if (nr >= 0 && nc >= 0 && nr < N && nc < M) {
 					// 다음 칸이 벽이 아닐 때
 					if (map[nr][nc] == 0) {
-            // 현재 부순 벽의 개수를 유지하며 이동한다.
+            					// 현재 부순 벽의 개수를 유지하며 이동한다.
 						if (now.broken <= K & dist[nr][nc][now.broken] == 0) {
 							dist[nr][nc][now.broken] = dist[now.x][now.y][now.broken] + 1;
 							queue.add(new Point(nr, nc, now.broken));
