@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
+
 class Node implements Comparable {
 	int row;
 	int col;
@@ -19,6 +20,7 @@ class Node implements Comparable {
 		return this.cost - next.cost;
 	}
 }
+
 public class Main {
 	static int[] dr = { -1, 1, 0, 0 };
 	static int[] dc = { 0, 0, -1, 1 };
@@ -27,6 +29,7 @@ public class Main {
 	static int[][] dp;
 	static boolean[][] visited;
 	static int answer;
+	
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int tc = 0;
