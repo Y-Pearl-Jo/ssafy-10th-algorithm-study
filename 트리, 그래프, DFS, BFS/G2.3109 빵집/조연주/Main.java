@@ -4,14 +4,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-class Node{
-	int r,c;
-	public Node(int r, int c) {
-		this.r = r;
-		this.c = c;
-	}
-}
-
 public class Main {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
