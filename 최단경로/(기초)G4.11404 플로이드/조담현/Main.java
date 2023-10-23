@@ -6,7 +6,7 @@ import java.util.StringTokenizer;
 public class Main {
     static int N, M;
     static int[][] city;
-    //INF는 간선 가중치의 최댓값 * 정점 개수 -1 보다 큰 값을 사용하면 된다.
+    //INF는 (간선 가중치의 최댓값) * (정점 개수 -1) 보다 큰 값을 사용하면 된다.
     static final int INF = 10000000;
     static StringBuilder sb = new StringBuilder();
     public static void main(String[] args) throws IOException {
