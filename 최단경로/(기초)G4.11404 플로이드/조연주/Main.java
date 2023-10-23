@@ -1,4 +1,4 @@
-// 14088kb 132ms
+// 43884kb 424ms
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -7,58 +7,73 @@ import java.util.StringTokenizer;
 public class Main {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static StringTokenizer st;
-    static int N;
-    static int[][] con;
+    static int N,M;
+    static int[][] dist;
+    static int INF = 1000000000;
 
+    // main
     public static void main(String[] args) throws IOException {
-        N = input();
-        con = new int[N][N];
+        N = input(); // 도시 개수 (정점)
+        M = input(); // 버스 개수 (간선)
 
-        // 연결 배열
-        for(int i=0; i<N; i++){
-            st = new StringTokenizer(br.readLine());
-            for(int k=0; k<N; k++){
-                con[i][k] = input(st);
+        // 거리 테이블 초기화
+        dist = new int[N+1][N+1];
+        for(int i=1; i<=N; i++){
+            for(int k=1; k<=N; k++){
+                dist[i][k] = (i==k) ? 0 : INF;
             }
         }
 
-        floyd();
-        print();
+        // 간선 정보 입력받기
+        for(int i=0; i<M; i++){
+            st = new StringTokenizer(br.readLine());
+            int a = input(st); // 시작 도시
+            int b = input(st); // 도착 도시
+            int c = input(st); // 비용
 
+            dist[a][b] = Math.min(dist[a][b],c); // 시작 도시와 도착 도시를 연결하는 노선은 하나가 아닐 수 있다.
+        }
+
+        floydWarshall();
+        print();
     }
 
     // 플로이드-워셜
-    static void floyd(){
-        for(int m=0; m<N; m++){
-            for(int s=0; s<N; s++){
-                for(int e=0; e<N; e++){
-                    // 이미 연결되어 있는 경우
-                    if(con[s][e]==1) continue;
-                    // m을 통해 연결되는 경우
-                    if(con[s][m]==1 && con[m][e]==1){
-                        con[s][e] = 1;
-                    }
+    static void floydWarshall(){
+        // 노드 k -> 노드 j 로 가는 최소 비용 계산
+        // 노드 i : 경유하는 노드
+        for(int i=1; i<=N; i++){
+            for(int k=1; k<=N; k++){
+                for(int j=1; j<=N; j++){
+                    // 노드 k -> 노드 j  vs  노드 k -> 노드 i + 노드 i -> 노드 j
+                    dist[k][j] = Math.min(dist[k][j], dist[k][i]+dist[i][j]);
                 }
             }
         }
     }
 
-    // 출력
+    // 결과 출력
     static void print(){
         StringBuilder sb = new StringBuilder();
 
-        for(int i=0; i<N; i++){
-            for(int k=0; k<N; k++){
-                sb.append(con[i][k]).append(" ");
+        for(int i=1; i<=N; i++){
+            for(int k=1; k<=N; k++){
+                if(dist[i][k]==INF){
+                    sb.append(0).append(" ");
+                }
+                else{
+                    sb.append(dist[i][k]).append(" ");
+                }
             }
             sb.append("\n");
         }
 
         System.out.println(sb);
+
     }
 
-    // -------------------------
-    static int input() throws IOException {
+    // ---------------------------------------
+    static int input() throws IOException{
         return Integer.parseInt(br.readLine());
     }
 
