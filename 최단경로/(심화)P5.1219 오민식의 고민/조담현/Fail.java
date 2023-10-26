@@ -17,6 +17,7 @@ public class Main {
 	static class Edge {
 		int v;
 		int w;
+		
 		Long cost;
 		
 		public Edge(int v, int w, Long cost) {
@@ -29,6 +30,7 @@ public class Main {
 	static int N, M;
 	static int start, end;
 	static List<Edge> edges = new ArrayList<>();
+	// 1000000 * 50 * 50 = 25억까지 가능하므로 출력초과를 방지하기 위해 Long으로 값을 설정한다
 	static Long[] money;
 	static Long startMoney;
 	static int answer;
@@ -48,6 +50,7 @@ public class Main {
 			int v = Integer.parseInt(st.nextToken());
 			int w = Integer.parseInt(st.nextToken());
 			Long cost = Long.parseLong(st.nextToken());
+			// 벨만포드 실행하는데, cost는 음수로 저장한다.
 			edges.add(new Edge(v, w, cost * -1));
 
 		}
@@ -69,8 +72,10 @@ public class Main {
 
 	}
 
+	//벨만포드로 목적지까지 갈 수 있는 최대 비용을 찾는다.
 	public static String bellmanFord(int start, int end) {
 		Arrays.fill(money, INF);
+		// 시작점은 돈을 들고 시작하므로 시작점의 배열 값은 0이아니라 해당 도시에 도착했을때의 금액이다.
 		money[start] = startMoney;
 		Long temp = 0L;
 		for (int i = 0; i < N; i++) {
