@@ -1,3 +1,10 @@
+/*
+1. 벨만포드 실행하는데, cost는 음수로 저장한다.
+2. 각 도시에 도착하면 획득하는 금액들을 도시로 향하는 간선의 가중치(금액)에 더해준다.
+3. 1000000 * 50 * 50 = 25억까지 가능하므로 출력초과를 방지하기 위해 Long으로 값을 설정한다
+4. 벨만포드로 목적지까지 갈 수 있는 최대 비용을 찾는다.
+5. 시작점은 돈을 들고 시작하므로 시작점의 배열 값은 0이아니라 해당 도시에 도착했을때의 금액이다.
+*/
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -73,11 +80,13 @@ public class Main {
 				Edge e = edges.get(j);
 				if (money[e.v] != INF && money[e.v] + e.cost > money[e.w]) {
 					money[e.w] = money[e.v] + e.cost;
+					// N번째 모든 간선을 확인할 때 마지막으로 저장한 목적지 값이 바뀌면 사이클의 영향을 받으므로 Gee
 					if (i == N - 1 && temp != money[end]) {
 						return "Gee";
 					}
 				}
 			}
+			// N-1번째, 마지막으로 저장한 값
 			if(i==N-2) temp = money[end];
 		}
 		
