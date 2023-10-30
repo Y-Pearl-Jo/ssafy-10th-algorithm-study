@@ -1,3 +1,22 @@
+//			int i = 0;
+//			int j = 0;
+//			while (true) {
+//
+//				if (Aarr[i] > Barr[j]) {
+//					cnt++;
+//				} else {
+//					j++;
+//				}
+//
+//				if (j == B - 1) {
+//					i++;
+//				}
+//				if (i == A - 1 && j == B - 1) {
+//					break;
+//				}
+//			}
+
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
