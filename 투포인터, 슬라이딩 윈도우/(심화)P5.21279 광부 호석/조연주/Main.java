@@ -22,7 +22,7 @@ public class Main {
 	static StringTokenizer st;
 	
 	static int N,C,cnt;
-	static long sum,ans;
+	static long sum,ans; // long..
 	static int[][] map;
 	static List<Mineral>[] X = new ArrayList[100001];
 	static PriorityQueue<Mineral> pq;
@@ -53,7 +53,8 @@ public class Main {
 	
 	static void asdf() {
 		pq = new PriorityQueue<>((o1, o2)->Integer.compare(o2.y, o1.y));
-		
+
+		// x좌표의 모든 value 더하기
 		for(int i=0; i<X.length; i++) {
 			if(X[i].size()==0) continue;
 			
@@ -63,18 +64,20 @@ public class Main {
 				pq.offer(m);
 				cnt++;
 			}
-			
+
+			// 광물의 개수가 c 이하인 경우
 			if(cnt<=C) {
 				ans = Math.max(ans,sum);
 			}
+			// 광물의 개수가 c를 넘는 경우
 			else {
 				qwer();
 			}
 		}
 	}
-	
+
+	// 빼기
 	static void qwer() {
-		
 		// cnt가 C이하가 될 때까지 Y.poll해서 temp에서 빼주기
 		while(!pq.isEmpty()) {
 			Mineral m = pq.poll();
@@ -87,7 +90,7 @@ public class Main {
 
 		}
 		
-		// cnt가 C이하가 되면
+		// cnt가 C이하라면
 		if(cnt<=C) {
 			ans = Math.max(ans,sum);
 		}
