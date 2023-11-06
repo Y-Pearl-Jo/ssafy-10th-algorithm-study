@@ -116,6 +116,7 @@ public class Main {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		make();
 		solution();
+		
 	}
 
 	public static int init() throws IOException {
