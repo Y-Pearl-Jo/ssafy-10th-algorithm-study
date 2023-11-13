@@ -86,10 +86,7 @@ static int getTreeSize() {
 }
 ```
 
-```java
-// 루트 노드 index 1로 시작 할 경우 size+1
-int treeSize = (int)Math.pow(2, h + 1);
-```
+
 
 ### 2. 리프노드에 원본 데이터 입력하기
 
