@@ -27,11 +27,11 @@ int main()
 	for (int i = 0; i < N; i++) {
 		int n;
 		cin >> n;
-		arr.push_back({ n,i+1 });
+		arr.push_back({ n, i+1 });
 	}
 	sort(arr.begin(), arr.end());
 
-	// 바뀌는 횟수 구하기 : 해당 수의 위치(인덱스) 찾기 -> 인덱스 기준으로 구간 합 구하기 -> 트리 갱신
+	// 바뀌는 횟수 구하기 : 인덱스 기준으로 구간 합 구하기 -> 트리 갱신
 	for (int i = 0; i < (N+1)/2; i++) {
 		// 홀수 번째 -> 1 ~ n-1
 		int idx = arr[i].second;
