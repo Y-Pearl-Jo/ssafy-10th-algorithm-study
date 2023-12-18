@@ -4,8 +4,8 @@ import java.util.*;
 public class Main {
     public static class Ball implements Comparable<Ball> {
         int idx;
-        int c;
-        int s;
+        int c; // 공의 색
+        int s; // 공의 크기
 		
         public Ball (int idx, int c, int s) {
             this.idx = idx;
@@ -14,7 +14,7 @@ public class Main {
         }
 		
         public int compareTo (Ball o) {
-            return this.s - o.s;
+            return this.s - o.s; // 공의 크기 오름차순 정렬
         }
     }
 	
@@ -32,10 +32,10 @@ public class Main {
             int color = Integer.parseInt(st.nextToken());
             int size = Integer.parseInt(st.nextToken());
 			
-            ball.add(new Ball(i, color, size));
+            ball.add(new Ball(i, color, size)); // 공의 정보 저장
         }
 		
-        Collections.sort(ball);
+        Collections.sort(ball); // 크기가 작은 것부터 오름차순 정렬
 		
         int[] color = new int[N+1];
         int[] ans = new int[N];
@@ -47,13 +47,13 @@ public class Main {
             Ball b = ball.get(j);
 			
             while (b.s < a.s) {
-                sum += b.s;
-                color[b.c] += b.s;
+                sum += b.s; // 공의 크기 누적합 (자기보다 작은 공 잡기)
+                color[b.c] += b.s; // 공의 색별 누적합
 				
                 b = ball.get(++j);
             }
 			
-            ans[a.idx] = sum - color[a.c];
+            ans[a.idx] = sum - color[a.c]; // 전체 누적합 - 현재 색에 해당하는 공의 누적합 빼기 (내 색에 해당하는 공 제외하고 잡은 것이므로)
         }
 		
 		
