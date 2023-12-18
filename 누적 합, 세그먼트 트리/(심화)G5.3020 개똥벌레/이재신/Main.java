@@ -31,11 +31,10 @@ public class Main {
         down = new int[H + 2];
         up = new int[H + 2];
         for (int i = 1; i <= (N) / 2; i++) {
-            int a = init();
-            int b = H - init() + 1;
-            down[a]++;
-            up[b]++;
+            down[init()]++;
+            up[H - init() + 1]++;
         }
+        
         for (int i = 1; i <= H; i++) {
             down[i] += down[i - 1];
         }
