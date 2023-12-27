@@ -4,11 +4,12 @@
 
 밑의 그래프는 예시로 만들어본 그냥 트리입니다. 정점 4개와 6개의 간선으로 이루어져있습니다.
 
-[##_Image|kage@cZ6GvM/btsCEHvsFNQ/N3iejvMJNTpnxYe8fIbUc0/img.png|CDM|1.3|{"originWidth":1381,"originHeight":999,"style":"alignCenter","width":431,"height":312,"caption":"그냥 트리"}_##]
+<img width="368" alt="image" src="https://github.com/soberdam/ssafy-10th-algorithm-study/assets/118809296/d6caf1b4-3420-4936-8f50-4a7932abfd92">
+
 
 다음 그래프는 정점 4개와 3개의 간선으로 이루어져있습니다. **최소한의 간선의 갯수로 이루어져 있고 모든 정점이 연결된 스패닝 트리**의 형태입니다. 스패닝 트리는 다음과 같이 **간선의 갯수가 정점의 갯수 - 1 개**라는 특징이 있습니다.
 
-[##_Image|kage@bP6Jq2/btsCKpnjo8K/TenSAt8EeCyUJDgq7zp3ik/img.png|CDM|1.3|{"originWidth":1426,"originHeight":1000,"style":"alignCenter","width":442,"height":310}_##]
+<img width="406" alt="image" src="https://github.com/soberdam/ssafy-10th-algorithm-study/assets/118809296/484063a6-f2c0-46f5-bf9f-e6b2a2f80a5a">
 
 **최소 스패닝 트리는 이러한 스패닝 트리 중 사용된 가중치 합이 최소인 트리**를 뜻합니다.
 
@@ -21,7 +22,6 @@
 
 최소 스패닝 트리를 구하는 알고리즘은 크루스칼, 프림 두가지가 있습니다.
 
-이번 포스팅에서는 프림 알고리즘에 대해 설명하겠습니다.
 
 > **개념**
 
@@ -39,7 +39,7 @@
 
 > **구현 예시**
 
-[##_Image|kage@bIubXq/btsCAgL1B3E/a1hhxiBvCwpHG5899VTZv0/img.png|CDM|1.3|{"originWidth":1214,"originHeight":1000,"style":"alignCenter","width":613,"height":505}_##]
+<img width="531" alt="image" src="https://github.com/soberdam/ssafy-10th-algorithm-study/assets/118809296/600c4dca-8e34-40d0-931b-a788fdf7a7fc">
 
 위키백과에서 프림을 설명하기 위한 그래프 예시를 가져왔습니다. 
 
@@ -51,19 +51,19 @@ A에는 A와 B를 연결하는 가중치 7인 간선과 A와 D를 연결하는 �
 
 가중치가 적은 간선을 연결합니다.
 
-[##_Image|kage@cDjtB0/btsCKsRUifM/38YT5YmK4GByvlWu72nM81/img.png|CDM|1.3|{"originWidth":1167,"originHeight":1000,"style":"alignCenter","width":610,"height":523}_##]
+<img width="523" alt="image" src="https://github.com/soberdam/ssafy-10th-algorithm-study/assets/118809296/2254d99d-fd40-408e-965f-305f4e536e0b">
 
 연결된 정점, 간선은 빨간색으로 표시하고 사용할 수 있는 간선은 파란색으로 표시했습니다.
 
 사용할 수 있는 간선 중 가중치가 가장 낮은 간선을 연결해줍니다.
 
-[##_Image|kage@CUcVn/btsCzS5C6XQ/Zx0VxS8FrzSihKj712xpnK/img.png|CDM|1.3|{"originWidth":1160,"originHeight":1000,"style":"alignCenter","width":643,"height":554}_##]
+<img width="560" alt="image" src="https://github.com/soberdam/ssafy-10th-algorithm-study/assets/118809296/3ad135d0-102e-4e97-8a81-8e7eff40b142">
 
 A, D, F가 연결되었습니다.
 
 다시 파란 간선중 가중치가 가장 낮은 간선을 연결합니다.
 
-[##_Image|kage@cqmHgm/btsCzReBvJw/Unn6uCQapsskonQtiahCpk/img.png|CDM|1.3|{"originWidth":1096,"originHeight":999,"style":"alignCenter","width":622,"height":567}_##]
+<img width="565" alt="image" src="https://github.com/soberdam/ssafy-10th-algorithm-study/assets/118809296/9285eaa4-fec8-4412-8c97-5476cfeae187">
 
 A, B, D, F가 연결되었습니다.
 
@@ -71,7 +71,7 @@ A, B, D, F가 연결되었습니다.
 
 위의 과정들을 반복하면 다음과 같은 최소 스패닝 트리가 완성됩니다.
 
-[##_Image|kage@bvEPWh/btsCCx7LX3f/SMBiOtSJ7iyaQIhXyZTgU1/img.png|CDM|1.3|{"originWidth":1087,"originHeight":1000,"style":"alignCenter","width":599,"height":551}_##]
+<img width="534" alt="image" src="https://github.com/soberdam/ssafy-10th-algorithm-study/assets/118809296/ae3b7c4d-b4e0-47df-81a2-8bc87dffb958">
 
 과정을 요약해보겠습니다.
 
@@ -203,6 +203,10 @@ class Main {
 
 **프림은 다익스트라를 보장하지 않고, 다익스트라 또한 프림을 보장하지 않습니다.**
 
+---
+
+크루스칼
+
 > **개념**
 
 크루스칼 알고리즘은 **간선선택을 기반**으로 합니다.
@@ -226,29 +230,29 @@ class Main {
 
 다음 그래프의 최소신장트리를 크루스칼 알고리즘을 통해 구해보겠습니다.
 
-[##_Image|kage@otsCt/btsCG5KdJa6/y29noGgbbPgwaYxyRGlPv0/img.png|CDM|1.3|{"originWidth":1375,"originHeight":1000,"style":"alignCenter","width":565,"height":411}_##]
+<img width="492" alt="image" src="https://github.com/soberdam/ssafy-10th-algorithm-study/assets/118809296/a090e786-4415-4039-968c-62a49cc75040">
 
 먼저 UnionFind를 위한 부모노드 배열을 설정합니다.
 
 부모노드 배열 초기상태는 다음과 같습니다.
 
-[##_Image|kage@kQO22/btsCDgyq8TC/40BoFIbV7FhMcCbCV3Oku1/img.png|CDM|1.3|{"originWidth":2069,"originHeight":1000,"style":"alignCenter","width":503,"height":243}_##]
+<img width="453" alt="image" src="https://github.com/soberdam/ssafy-10th-algorithm-study/assets/118809296/731a40f6-f799-461e-8a3a-4b364be571bf">
 
 후에 가중치 별로 간선을 정렬해줍니다.
 
 가중치가 같은 경우에는 from이 낮은 순서로 정렬했습니다.
 
-[##_Image|kage@kQ386/btsCG3S5zPY/RkXwLVFsrm98GRhCyFpe10/img.png|CDM|1.3|{"originWidth":1000,"originHeight":1184,"style":"alignCenter","width":626,"height":741}_##]
+<img width="474" alt="image" src="https://github.com/soberdam/ssafy-10th-algorithm-study/assets/118809296/a2d1fc16-9802-491e-98aa-a7a9913ae569">
 
 이제 가중치가 낮은 순서부터 선택합니다.
 
-[##_Image|kage@bY990x/btsCK80qnov/48Qc4Kz3Bds2WAY5t3IjL0/img.png|CDM|1.3|{"originWidth":1709,"originHeight":1000,"style":"alignCenter","width":624,"height":365}_##]
+<img width="538" alt="image" src="https://github.com/soberdam/ssafy-10th-algorithm-study/assets/118809296/5e5fe328-ea74-4e8a-b7e7-e21c7e5b482c">
 
 간선 선택은 빨간색 동그라미로 표현하였습니다.
 
 선택된 간선은 부모 노드 배열 값을 변경함으로 표시합니다.
 
-[##_Image|kage@b29PYf/btsCIEyKAkq/NRYf51pWy1lRzaDcsDTUJK/img.png|CDM|1.3|{"originWidth":1180,"originHeight":1000,"style":"alignCenter","width":646,"height":547}_##]
+<img width="535" alt="image" src="https://github.com/soberdam/ssafy-10th-algorithm-study/assets/118809296/562ca3f9-f7f6-4aa4-8b81-14930a3ed4e5">
 
 2와 4를 연결하는 4번째 간선은 선택하지 않습니다.
 
@@ -256,17 +260,17 @@ class Main {
 
 **둘의 부모가 같기에 이 간선을 선택하면 사이클이 형성**됩니다.
 
-[##_Image|kage@bwFqYg/btsCKq1ko9I/rFmEaI9EFFF7kgf0NmKOV1/img.png|CDM|1.3|{"originWidth":1077,"originHeight":1000,"style":"alignCenter","width":617,"height":573}_##]
+<img width="499" alt="image" src="https://github.com/soberdam/ssafy-10th-algorithm-study/assets/118809296/4acd0386-5710-471d-bcec-d1dc64529cb0">
 
 총 **5개의 정점을 가진 상태에서 4개의 간선**을 선택하였습니다.
 
 **부모노드 배열의 값은 모두 같아진 상태**를 확인할 수 있습니다.
 
-[##_Image|kage@bb5u0q/btsCLaKICCH/fOPi3Qu0IKrWv9CNzWHcg0/img.png|CDM|1.3|{"originWidth":1000,"originHeight":1112,"style":"alignCenter","width":588,"height":654}_##]
+<img width="484" alt="image" src="https://github.com/soberdam/ssafy-10th-algorithm-study/assets/118809296/30ffeab6-7c2d-4c0d-bc8a-60b8cbbccc57">
 
 완성된 최소신장 트리는 다음과 같습니다.
 
-[##_Image|kage@YMEFV/btsCIGDmCp8/yKFKddNXWZXkSK7bbiLX9k/img.png|CDM|1.3|{"originWidth":1245,"originHeight":1000,"style":"alignCenter","width":580,"height":466}_##]
+<img width="512" alt="image" src="https://github.com/soberdam/ssafy-10th-algorithm-study/assets/118809296/1e1f214e-351f-4cbf-a4f6-16be3c03924f">
 
 모든 정점이 포함된 것을 확인할 수 있습니다.
 
