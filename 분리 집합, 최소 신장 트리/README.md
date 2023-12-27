@@ -83,13 +83,6 @@ A, B, D, F가 연결되었습니다.
 > **문제 예시**
 
 
-[문제 링크 : https://www.acmicpc.net/problem/1197](https://www.acmicpc.net/problem/1197)
-
- [1197번: 최소 스패닝 트리
-
-첫째 줄에 정점의 개수 V(1 ≤ V ≤ 10,000)와 간선의 개수 E(1 ≤ E ≤ 100,000)가 주어진다. 다음 E개의 줄에는 각 간선에 대한 정보를 나타내는 세 정수 A, B, C가 주어진다. 이는 A번 정점과 B번 정점이
-
-www.acmicpc.net](https://www.acmicpc.net/problem/1197)
 
 **정점 사용은 방문배열**을 통해 처리하였고 **가중치 순 정렬을 위해 우선순위 큐**를 사용하였습니다.
 
@@ -282,15 +275,6 @@ class Main {
 
 > **문제 예시**
 
-백준 1197 최소스패닝트리 문제를 사용하였습니다.
-
-[문제 링크 :](https://www.acmicpc.net/problem/1197) [https://www.acmicpc.net/problem/1197](https://www.acmicpc.net/problem/1197)
-
- [1197번: 최소 스패닝 트리
-
-첫째 줄에 정점의 개수 V(1 ≤ V ≤ 10,000)와 간선의 개수 E(1 ≤ E ≤ 100,000)가 주어진다. 다음 E개의 줄에는 각 간선에 대한 정보를 나타내는 세 정수 A, B, C가 주어진다. 이는 A번 정점과 B번 정점이
-
-www.acmicpc.net](https://www.acmicpc.net/problem/1197)
 
 ```
 import java.io.BufferedReader;
