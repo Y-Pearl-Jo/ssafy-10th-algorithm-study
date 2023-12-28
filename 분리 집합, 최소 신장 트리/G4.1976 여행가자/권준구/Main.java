@@ -11,7 +11,10 @@ public class Main {
 		N = Integer.parseInt(br.readLine());
 		M = Integer.parseInt(br.readLine());
 		
-		make();
+		parents = new int[N];
+        	for (int i = 0; i < N; i++) {
+            		parents[i] = i; // 각 노드의 부모를 자기 자신으로 초기화
+        	}
 		
 		root = new int[M];
 		for(int i = 0 ; i < N ; i++) {
@@ -48,13 +51,6 @@ public class Main {
 	private static int find(int x) {
 		if(x == parents[x]) return x;
 		return parents[x] = find(parents[x]);
-	}
-	
-	private static void make() {
-		parents = new int[N];
-		for(int i = 0; i < N ; i++) {
-			parents[i] = i;
-		}
 	}
 
 }
