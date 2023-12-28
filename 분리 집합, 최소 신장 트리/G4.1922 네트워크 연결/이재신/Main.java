@@ -22,7 +22,7 @@ class Vertex implements Comparable<Vertex> {
         return this.value - v.value;
     }
 }
-
+// 메모리 : 50824 KB, 시간 : 464 ms
 public class Main {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static StringBuilder sb = new StringBuilder();
