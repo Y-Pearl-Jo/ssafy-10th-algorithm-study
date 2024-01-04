@@ -7,71 +7,70 @@
     ![111](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/53993041/5b684ba3-8988-49f9-b6ce-457670fe439c)
 
 ## 어떤 문제에 쓰지?
-- Directed Acyclic Graph(**DAG, 방향 비순환 그래프**)에만 적용 가능
-    - **사이클이 없는** 그래프
-    - **시작점** 존재 
+1. Directed Acyclic Graph(**DAG, 방향 비순환 그래프**)에만 적용 가능
+- **사이클이 없는** 그래프
+- **시작점** 존재 
  
     불가능한 경우 (사이클 있음, 시작점 없음)
     ![222](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/53993041/7a904391-e33b-4f2c-84a9-b676c74b974f)
 
 
-- 뭔가 **먼저** 하고, 뭔가 **나중에** 해야 할 때 (시간, 공간, 우선 순위, 비교...)
-  
-  ![순서2](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/53993041/9447c612-5dab-4cf5-99b5-18477162c55c)
-  ![시작출발](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/53993041/122a8fca-bdcf-41d4-ab33-dc5c037842ce)
-  ![위계](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/53993041/005d4fdf-335b-4f76-aa92-aa868b898918)
- 
-        
+2. 뭔가 **먼저** 하고, 뭔가 **나중에** 해야 할 때 (시간, 공간, 우선 순위, 비교...)
+![순서2](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/53993041/9447c612-5dab-4cf5-99b5-18477162c55c)
+![시작출발](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/53993041/122a8fca-bdcf-41d4-ab33-dc5c037842ce)
+![위계](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/53993041/005d4fdf-335b-4f76-aa92-aa868b898918)
+    
 
 ## 위상 정렬로 알 수 있는 것
-1. 사이클 존재 여부 (정렬 불가능)
+1. 정렬이 가능한지 여부
 2. 정렬 결과
 
 
 ## 변수
 - **큐**
   <br>
-    ```Queue<Integer> q = new LinkedList<>();```
+    ```java
+      Queue<Integer> q = new LinkedList<>();
+    ```
 - **간선 정보** 그래프
   <br>
-    ```List<List<Integer>> graph = new ArrayList<ArrayList<Integer>>();```
+    ```java
+      List<List<Integer>> graph = new ArrayList<ArrayList<Integer>>();
+    ```
 - **진입 차수**(정점으로 들어오는 간선의 개수) 배열
   <br>
-    ```int[] indegree = new int[노드 개수];```
+    ```java
+      int[] indegree = new int[노드 개수];
+    ```
             
 
 ## 과정
-1.  그래프 간선 정보, 진입 차수 입력 받기
+### 1.  그래프 간선 정보, 진입 차수 입력 받기
    ![t1](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/53993041/028e2953-9f61-4785-bbca-1114eb28ad21)
         
-2.  진입 차수가 0인 정점 → 큐에 넣기
+### 2.  진입 차수가 0인 정점 → 큐에 넣기
    ![t2](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/53993041/517c064f-1c30-4e23-b824-837e4d441a10)
 
-3.  큐에서 노드 하나 꺼내기 → 방문 노드로 설정
-    ![t3](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/53993041/6c2001ea-5f58-4d33-be09-14d9a7dce5e3)
+### 3.  큐에서 노드 하나 꺼내기 → 방문 노드로 설정
+![t3](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/53993041/6c2001ea-5f58-4d33-be09-14d9a7dce5e3)
         
-4.  방문 노드와 인접한 노드 사이의 간선 제거 → 인접 노드의 진입차수 -1
-    ![t4](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/53993041/da30f861-59f9-45e6-a330-4e3d7e97e55a)
+### 4.  방문 노드와 인접한 노드 사이의 간선 제거 → 인접 노드의 진입차수 -1
+![t4](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/53993041/da30f861-59f9-45e6-a330-4e3d7e97e55a)
 
         
-5.  인접 노드의 진입차수가 0이라면? → 큐에 넣기
-    ![t5](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/53993041/b064185f-ad51-43ef-ae11-3f471f883144)
-
-        
+### 5.  인접 노드의 진입차수가 0이라면? → 큐에 넣기
+![t5](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/53993041/b064185f-ad51-43ef-ae11-3f471f883144)     
     
-6.  큐가 빌 때까지 3~5반복
-    - 모든 정점을 방문하기 전에 큐가 빈다면? 사이클 존재
-    - 모든 정점을 방문했다면? 큐에서 꺼낸 순서가 위상정렬 결과
-        ![t6](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/53993041/6249c24b-4a0e-4b1c-bf79-855ea40dda8c)
+### 6.  큐가 빌 때까지 3~5반복
+#### - 모든 정점을 방문하기 전에 큐가 빈다면? 사이클 존재
+#### - 모든 정점을 방문했다면? 큐에서 꺼낸 순서가 위상정렬 결과
+  ![t6](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/53993041/6249c24b-4a0e-4b1c-bf79-855ea40dda8c)
 
-        
-        
-    
        
  ## 코드   
   - Java
-        
-        ```java
+    
+    ```java
         import java.util.*;
         
         public class Main {
@@ -140,11 +139,11 @@
             }
         
         }
-        ```
+    ```
         
 - C++
         
-        ```cpp
+  ```cpp
         int n; // 정점의 개수
         vector<int> inDegree; // 진입 차수 저장
         vector<vector<int>> graph; // 간선 정보 저장
@@ -185,4 +184,4 @@
                 }
             }
         }
-        ```
+  ```
