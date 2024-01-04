@@ -36,9 +36,7 @@ public class Main {
 
 			for (int i = 0; i < graph[now].size(); i++) {
 				int next = graph[now].get(i);
-				if (dp[next] < dp[now] + time[next]) {
-					dp[next] = dp[now] + time[next];
-				}
+				dp[next] = Math.max(dp[next], dp[now] + time[next])
 				if (--in_degree[next] == 0)
 					q.offer(next);
 			}
