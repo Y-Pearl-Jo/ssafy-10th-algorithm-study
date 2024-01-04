@@ -2,10 +2,18 @@
 
 - ****位相 (자리 위, 서로 상) :**** 어떤 사물이 다른 사물과의 관계 속에서 가지는 위치나 양상
 - **순서가 정해져 있는 작업**을 차례로 수행해야 할 때, 작업 순서를 정렬
+- 시간복잡도: **O(V+E)**
     
     ![111](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/53993041/5b684ba3-8988-49f9-b6ce-457670fe439c)
 
 ## 어떤 문제에 쓰지?
+- Directed Acyclic Graph(**DAG, 방향 비순환 그래프**)에만 적용 가능
+    - **사이클이 없는** 그래프
+    - **시작점** 존재 
+ 
+    불가능한 경우 (사이클 있음, 시작점 없음)
+    ![222](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/53993041/7a904391-e33b-4f2c-84a9-b676c74b974f)
+
 
 - 뭔가 **먼저** 하고, 뭔가 **나중에** 해야 할 때 (시간, 공간, 우선 순위, 비교...)
   
@@ -13,54 +21,50 @@
   ![시작출발](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/53993041/122a8fca-bdcf-41d4-ab33-dc5c037842ce)
   ![위계](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/53993041/005d4fdf-335b-4f76-aa92-aa868b898918)
  
-- Directed Acyclic Graph(**DAG, 방향 비순환 그래프**)에만 적용 가능
-    - **사이클이 없는** 그래프
-    - **시작점** 존재
         
 
 ## 위상 정렬로 알 수 있는 것
-
 1. 사이클 존재 여부 (정렬 불가능)
 2. 정렬 결과
 
 
-## 위상정렬 과정
+## 변수
+- **큐**
+  <br>
+    ```Queue<Integer> q = new LinkedList<>();```
+- **간선 정보** 그래프
+  <br>
+    ```List<List<Integer>> graph = new ArrayList<ArrayList<Integer>>();```
+- **진입 차수**(정점으로 들어오는 간선의 개수) 배열
+  <br>
+    ```int[] indegree = new int[노드 개수];```
+            
 
-- 시간복잡도: **O(V+E)**
-- 자료구조
-    - **큐**
-- 변수
-    - **그래프 간선 정보**
-    - **진입차수(**각 정점에 꽃히는 간선의 개수) ****배열
-- 순서
-    - 1.  그래프 간선 정보, 진입 차수 입력 받기
+## 과정
+1.  그래프 간선 정보, 진입 차수 입력 받기
+   ![t1](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/53993041/028e2953-9f61-4785-bbca-1114eb28ad21)
         
-        ![t1.PNG](https://prod-files-secure.s3.us-west-2.amazonaws.com/3fb61ab6-7350-4037-a50a-d8a434b46e3a/14add20f-8b85-45af-8555-a902101d4c34/t1.png)
+2.  진입 차수가 0인 정점 → 큐에 넣기
+   ![t2](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/53993041/517c064f-1c30-4e23-b824-837e4d441a10)
+
+3.  큐에서 노드 하나 꺼내기 → 방문 노드로 설정
+    ![t3](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/53993041/6c2001ea-5f58-4d33-be09-14d9a7dce5e3)
         
-    - 2.  진입 차수가 0인 정점 → 큐에 넣기
+4.  방문 노드와 인접한 노드 사이의 간선 제거 → 인접 노드의 진입차수 -1
+    ![t4](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/53993041/da30f861-59f9-45e6-a330-4e3d7e97e55a)
+
         
-        ![t2.PNG](https://prod-files-secure.s3.us-west-2.amazonaws.com/3fb61ab6-7350-4037-a50a-d8a434b46e3a/163d787e-9ac1-4dbf-af9e-f9f60ceff456/t2.png)
-        
-    - 3.  큐에서 노드 하나 꺼내기 → 방문 노드로 설정
-        
-        ![t3.PNG](https://prod-files-secure.s3.us-west-2.amazonaws.com/3fb61ab6-7350-4037-a50a-d8a434b46e3a/a512dbbb-ba7b-44e3-b3a5-08312918ca31/t3.png)
-        
-    - 4.  방문 노드와 인접한 노드 사이의 간선 제거 → 인접 노드의 진입차수 -1
-        
-        ![t4.PNG](https://prod-files-secure.s3.us-west-2.amazonaws.com/3fb61ab6-7350-4037-a50a-d8a434b46e3a/8b2997bc-e1a4-494f-acf7-25e65c8917fb/t4.png)
-        
-    - 5.  인접 노드의 진입차수가 0이라면? → 큐에 넣기
-        
-        ![t5.PNG](https://prod-files-secure.s3.us-west-2.amazonaws.com/3fb61ab6-7350-4037-a50a-d8a434b46e3a/6144ed4f-ae3c-4cb5-8f51-dc103c636568/t5.png)
+5.  인접 노드의 진입차수가 0이라면? → 큐에 넣기
+    ![t5](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/53993041/b064185f-ad51-43ef-ae11-3f471f883144)
+
         
     
-          6.  큐가 빌 때까지 3~5반복
-    
-          a. 모든 정점을 방문하기 전에 큐가 빈다면? 사이클 존재
-    
-    - b. 모든 정점을 방문했다면? 큐에서 꺼낸 순서가 위상정렬 결과
+6.  큐가 빌 때까지 3~5반복
+    - 모든 정점을 방문하기 전에 큐가 빈다면? 사이클 존재
+    - 모든 정점을 방문했다면? 큐에서 꺼낸 순서가 위상정렬 결과
+        ![t6](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/53993041/6249c24b-4a0e-4b1c-bf79-855ea40dda8c)
+
         
-        ![t6.PNG](https://prod-files-secure.s3.us-west-2.amazonaws.com/3fb61ab6-7350-4037-a50a-d8a434b46e3a/03de18ca-d6de-4352-b586-a3427e4d6643/t6.png)
         
     
        
