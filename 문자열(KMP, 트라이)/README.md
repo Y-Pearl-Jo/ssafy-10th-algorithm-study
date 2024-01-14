@@ -10,39 +10,39 @@
 
 ### 접두사(Prefix) 개념
 
-<banana의 접두사>
-
-b
-
-ba
-
-ban
-
-bana
-
-banan
-
-banana
-
-→ 이 6개가 banana의 접두사
+><banana의 접두사>
+>
+>b
+>
+>ba
+>
+>ban
+>
+>bana
+>
+>banan
+>
+>banana
+>
+>→ 이 6개가 banana의 접두사
 
 ### 접미사(Suffix) 개념
 
-<banana의 접미사>
-
-a
-
-na
-
-ana
-
-nana
-
-anana
-
-banana
-
-→ 이 6개가 banana의 접미사
+><banana의 접미사>
+>
+>a
+>
+>na
+>
+>ana
+>
+>nana
+>
+>anana
+>
+>banana
+>
+>→ 이 6개가 banana의 접미사
 
 ### pi[i] 배열 개념
 
@@ -109,12 +109,11 @@ pi[i] 배열 : 주어진 문자열의 0~i 까지의 부분 문자열 중에서 p
 
 ![Untitled (10)](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/140683237/89f0c4ac-d4af-486a-af7d-b9c5bbf98062)
 
-<aside>
-🌟 KMP 알고리즘은 틀렸다는 사실이 아니라 조금이라도 일치했던 정보에 주목한다.
 
-조금이라도 일치했던 정보들을 pi배열을 통해 전처리 해두고, 많은 중간 시도를 건너뛸 수 있게 한다.
+>🌟 KMP 알고리즘은 틀렸다는 사실이 아니라 조금이라도 일치했던 정보에 주목한다.
+>
+>조금이라도 일치했던 정보들을 pi배열을 통해 전처리 해두고, 많은 중간 시도를 건너뛸 수 있게 한다.
 
-</aside>
 
 ## KMP의 구현
 
