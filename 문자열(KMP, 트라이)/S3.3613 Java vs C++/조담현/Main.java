@@ -39,7 +39,7 @@ public class Main {
         
         
         if (toJava) { // 자바로 바꾼다면
-            boolean nextUpper = false; // 다음문자가 대문자
+            boolean nextUpper = false; // 다음문자가 대문자인지 체크
             for (int i = 0; i < str.length(); i++) {
                 char ch = str.charAt(i);
                 if (nextUpper) {
