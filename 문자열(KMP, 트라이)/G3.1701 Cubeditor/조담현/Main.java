@@ -20,7 +20,7 @@ public class Main {
 	public static int getpi(String s) {
 		int[] pi = new int[s.length()];
 		int j = 0; // 접두사 비교 인덱스
-        int max = 0; 
+        	int max = 0; 
 		for(int i = 1; i < s.length(); i++) { // 접미사 비교 인덱스
 			while(j > 0 && s.charAt(i) != s.charAt(j)) {
 				j = pi[j - 1];
