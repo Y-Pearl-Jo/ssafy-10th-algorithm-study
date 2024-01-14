@@ -20,7 +20,7 @@ int main() {
 	for (int i = 0; i < str.length(); i++) {
 		// C++ : '_' 사용, 대문자 X
 		if (str[i] == '_') {
-			if (i == 0 || i == str.length() - 1 || str[i + 1] == '_') {		// 첫번째나 마지막에 오는 경우, 연속 2개인 경우
+			if (i == 0 || i == str.length() - 1 || str[i + 1] == '_') {	// 첫번째나 마지막에 오는 경우, 연속 2개인 경우
 				isError = true;
 				break;
 			}
@@ -28,13 +28,13 @@ int main() {
 		}
 		// Java : 띄어쓰기 X, 대문자 O
 		else if (isupper(str[i])) {
-			if (i == 0) {					// 첫번째 문자가 대문자인 경우
+			if (i == 0) {		// 첫번째 문자가 대문자인 경우
 				isError = true;
 				break;
 			}
 			isJava = true;
 		}
-		else if (str[i] == ' ') {			// 띄어쓰기가 있는 경우
+		else if (str[i] == ' ') {	// 띄어쓰기가 있는 경우
 			isError = true;
 			break;
 		}
