@@ -5,9 +5,16 @@
 문자열을 빠르게 탐색하는 방법들
 
 [1. KMP](https://github.com/pado7sea/ssafy-10th-algorithm-study/blob/main/%EB%AC%B8%EC%9E%90%EC%97%B4(KMP%2C%20%ED%8A%B8%EB%9D%BC%EC%9D%B4)/README.md#kmpknuth-morris-pratt)  
+- [KMP 알고리즘을 들어가기 전… 사전개념](https://github.com/pado7sea/ssafy-10th-algorithm-study/blob/main/%EB%AC%B8%EC%9E%90%EC%97%B4(KMP,%20%ED%8A%B8%EB%9D%BC%EC%9D%B4)/README.md#kmp-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84-%EB%93%A4%EC%96%B4%EA%B0%80%EA%B8%B0-%EC%A0%84-%EC%82%AC%EC%A0%84%EA%B0%9C%EB%85%90)
+
+- [KMP 알고리즘의 원리](https://github.com/pado7sea/ssafy-10th-algorithm-study/blob/main/%EB%AC%B8%EC%9E%90%EC%97%B4(KMP,%20%ED%8A%B8%EB%9D%BC%EC%9D%B4)/README.md#kmp-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%98-%EC%9B%90%EB%A6%AC)
+
+- [KMP의 구현](https://github.com/pado7sea/ssafy-10th-algorithm-study/blob/main/%EB%AC%B8%EC%9E%90%EC%97%B4(KMP,%20%ED%8A%B8%EB%9D%BC%EC%9D%B4)/README.md#kmp%EC%9D%98-%EA%B5%AC%ED%98%84)
 
 [2. 트라이](https://github.com/pado7sea/ssafy-10th-algorithm-study/blob/main/%EB%AC%B8%EC%9E%90%EC%97%B4(KMP%2C%20%ED%8A%B8%EB%9D%BC%EC%9D%B4)/README.md#%ED%8A%B8%EB%9D%BC%EC%9D%B4trie)
+- [트라이의 원리](https://github.com/pado7sea/ssafy-10th-algorithm-study/blob/main/%EB%AC%B8%EC%9E%90%EC%97%B4(KMP,%20%ED%8A%B8%EB%9D%BC%EC%9D%B4)/README.md#%ED%8A%B8%EB%9D%BC%EC%9D%B4%EC%9D%98-%EC%9B%90%EB%A6%AC)
 
+- [트라이의 구현](https://github.com/pado7sea/ssafy-10th-algorithm-study/blob/main/%EB%AC%B8%EC%9E%90%EC%97%B4(KMP,%20%ED%8A%B8%EB%9D%BC%EC%9D%B4)/README.md#%ED%8A%B8%EB%9D%BC%EC%9D%B4%EC%9D%98-%EA%B5%AC%ED%98%84)
 
 # KMP(Knuth-Morris-Pratt)
 
