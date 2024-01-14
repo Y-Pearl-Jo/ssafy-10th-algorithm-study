@@ -52,11 +52,11 @@ pi[i] 배열 : 주어진 문자열의 0~i 까지의 부분 문자열 중에서 p
 
 ### (예시) 문자열 “ABAABAB”의 pi배열
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b470c38f-a4ea-446d-a291-c178e0dcf783/fe711056-7e3c-4854-a2f2-0c9ec9b61fce/Untitled.png)
+![Untitled](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/140683237/3d5188fe-d62e-48e3-be1d-74b0a2e4ee49)
 
 ### (예시) 문자열 “AABAA”의 pi배열
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b470c38f-a4ea-446d-a291-c178e0dcf783/638a5cdb-a24d-40f4-ba4c-811dbf8e56a7/Untitled.png)
+![Untitled (1)](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/140683237/26744236-cd4a-48bc-8e74-d8fcda18cbb2)
 
 ## KMP 알고리즘의 원리
 
@@ -64,35 +64,35 @@ pi[i] 배열 : 주어진 문자열의 0~i 까지의 부분 문자열 중에서 p
 
 **첫 번째 시도** : 패턴의 0~5 부분 문자열은 텍스트와 일치했지만 6번째 인덱스의 E가 텍스트와 불일치
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b470c38f-a4ea-446d-a291-c178e0dcf783/64ac10d7-8e81-4de5-9353-1b1a914245e0/Untitled.png)
+![Untitled (2)](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/140683237/3205975b-3916-4250-831e-6e144f9f1ff1)
 
 **첫 번째 시도에서 주목해야할 사실** : 아래의 박스 부분은 일치한다 → KMP알고리즘의 핵심
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b470c38f-a4ea-446d-a291-c178e0dcf783/66206dd0-2d09-42e4-b1c1-49a2c2662544/Untitled.png)
+![Untitled (3)](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/140683237/d7cbde9e-1b4c-414b-b54d-7788627fc483)
 
 **접두사 AB와 접미사 AB가 일치** 
 
 (접두사와 접미사가 일치하는 최대 길이 ⇒ 패턴 “ABCDABE”의 pi[5] = 2 )
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b470c38f-a4ea-446d-a291-c178e0dcf783/b0879c12-408a-4bd3-8447-59fd25d4e8dc/Untitled.png)
+![Untitled (4)](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/140683237/bae21d69-445e-47b0-bd5f-ef6679a1d819)
 
 **따라서 다음 단계로 껑충 건너뛸 수 있음**(i는 텍스트의 현재 비교 위치, j는 패턴의 현재 비교 위치를 나타냄)
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b470c38f-a4ea-446d-a291-c178e0dcf783/258d12cc-d7c3-4e32-a9de-30e50dd19994/Untitled.png)
+![Untitled (5)](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/140683237/d008394e-2c62-4283-8381-b6880b32eb32)
 
 **빠진 중간 단계들을 살펴보자.**
 
 - 중간단계 1
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b470c38f-a4ea-446d-a291-c178e0dcf783/f76d8ccb-6f95-40ef-a693-1585cfc79ac7/Untitled.png)
+![Untitled (6)](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/140683237/0a21eb28-70a3-4b37-b97f-beb0cca8e80f)
 
 - 중간 단계 2
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b470c38f-a4ea-446d-a291-c178e0dcf783/0971829d-b61c-470e-8996-b8f61b47008b/Untitled.png)
+![Untitled (7)](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/140683237/32e5180c-b265-4ef6-8114-96e7a3d1cd2d)
 
 - 중간 단계 3
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b470c38f-a4ea-446d-a291-c178e0dcf783/ea8c2c07-6a15-40f8-90a0-f3b578012916/Untitled.png)
+![Untitled (8)](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/140683237/4e935065-3a2f-4d09-a228-d59a0d2ecdce)
 
 - 중간 단계 4
     
@@ -103,11 +103,11 @@ pi[i] 배열 : 주어진 문자열의 0~i 까지의 부분 문자열 중에서 p
     따라서 현재 비교위치를 인덱스 4번이 아닌 4+2 = 6번에서 시작할 것임
     
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b470c38f-a4ea-446d-a291-c178e0dcf783/c79a9974-df8c-48aa-94e8-fbb9cd468e6d/Untitled.png)
+![Untitled (9)](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/140683237/68f44848-1e2d-487c-8be9-921efc6a8081)
 
 **KMP로 건너뛴 최종단계!**
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b470c38f-a4ea-446d-a291-c178e0dcf783/258d12cc-d7c3-4e32-a9de-30e50dd19994/Untitled.png)
+![Untitled (10)](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/140683237/89f0c4ac-d4af-486a-af7d-b9c5bbf98062)
 
 <aside>
 🌟 KMP 알고리즘은 틀렸다는 사실이 아니라 조금이라도 일치했던 정보에 주목한다.
@@ -215,7 +215,7 @@ public class KMPExample {
 
 ## 트라이의 원리
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b470c38f-a4ea-446d-a291-c178e0dcf783/90d0246e-2191-4e6e-bd97-527ba1ccfdc2/Untitled.png)
+![Untitled (11)](https://github.com/soberdam/ssafy-10th-algorithm-study/assets/140683237/9091ce34-a591-443c-9f6c-e1e9c5b69a2d)
 
 **트리의 루트에서부터 자식들을 따라가면서 생성된 문자열들이 트라이 자료구조에 저장되어 있음.**
 
