@@ -4,8 +4,9 @@
 
 문자열을 빠르게 탐색하는 방법들
 
-[KMP](https://github.com/pado7sea/ssafy-10th-algorithm-study/blob/main/%EB%AC%B8%EC%9E%90%EC%97%B4(KMP%2C%20%ED%8A%B8%EB%9D%BC%EC%9D%B4)/README.md#kmpknuth-morris-pratt)
-[트라이](https://github.com/pado7sea/ssafy-10th-algorithm-study/blob/main/%EB%AC%B8%EC%9E%90%EC%97%B4(KMP%2C%20%ED%8A%B8%EB%9D%BC%EC%9D%B4)/README.md#%ED%8A%B8%EB%9D%BC%EC%9D%B4trie)
+[1. KMP](https://github.com/pado7sea/ssafy-10th-algorithm-study/blob/main/%EB%AC%B8%EC%9E%90%EC%97%B4(KMP%2C%20%ED%8A%B8%EB%9D%BC%EC%9D%B4)/README.md#kmpknuth-morris-pratt)  
+
+[2. 트라이](https://github.com/pado7sea/ssafy-10th-algorithm-study/blob/main/%EB%AC%B8%EC%9E%90%EC%97%B4(KMP%2C%20%ED%8A%B8%EB%9D%BC%EC%9D%B4)/README.md#%ED%8A%B8%EB%9D%BC%EC%9D%B4trie)
 
 
 # KMP(Knuth-Morris-Pratt)
