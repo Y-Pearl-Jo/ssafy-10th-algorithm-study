@@ -1,3 +1,4 @@
+// 메모리: 2024 KB, 시간: 0 ms
 #include<iostream>
 #include<vector>
 #include<algorithm>
